@@ -55,24 +55,29 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
-              icon: new Icon(Icons.home),
-              label: "Home",
-              backgroundColor: Colors.deepOrange),
+            icon: new Icon(Icons.home),
+            label: "Home",
+            backgroundColor: Colors.deepOrange,
+          ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.map),
             label: "Map",
+            backgroundColor: Colors.deepOrange,
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.save),
             label: "Save",
+            backgroundColor: Colors.deepOrange,
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.camera),
             label: "Camera",
+            backgroundColor: Colors.deepOrange,
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.settings),
             label: "Settings",
+            backgroundColor: Colors.deepOrange,
           ),
         ],
       ),
