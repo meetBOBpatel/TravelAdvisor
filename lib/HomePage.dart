@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
         title: new Text("Home Page"),
       ),
       body: new Center(
-        child: Image.asset("NationalPark.jpg"),
+        child: Image.asset("assets/images/NationalPark.jpg"),
       ),
     );
   }
