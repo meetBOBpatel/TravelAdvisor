@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:travel_advisor/AuthService.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -13,7 +15,17 @@ class _SettingsPageState extends State<SettingsPage> {
         title: new Text("Settings Page"),
       ),
       body: new Center(
-        child: new Text("This is Settings Page"),
+        child: Column(
+          children: [
+            Text("This is the Settings Page"),
+            ElevatedButton(
+              child: Text('Sign out'),
+              onPressed: () {
+                context.read<AuthenticationService>().signOut();
+              },
+            )
+          ],
+        ),
       ),
     );
   }
