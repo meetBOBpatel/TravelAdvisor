@@ -3,6 +3,10 @@
    <application
         android:label="travel_advisor"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+          android:value="AIzaSyCeB5-uombwa-fRwkXeW4srQga6p6Hm8mw"/>
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

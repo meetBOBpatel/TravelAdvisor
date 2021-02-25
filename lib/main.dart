@@ -5,21 +5,75 @@
 import 'package:flutter/material.dart';
 import 'package:travel_advisor/CameraPage.dart';
 import 'package:travel_advisor/HomePage.dart';
+import 'package:travel_advisor/LoginPage.dart';
 import 'package:travel_advisor/MapPage.dart';
 import 'package:travel_advisor/SavePage.dart';
 import 'package:travel_advisor/SettingsPage.dart';
+import 'package:travel_advisor/AuthService.dart';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:travel_advisor/StartupPage.dart';
 import 'package:vm_service/vm_service.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: MyBottomNavigationBar(),
+    // return new MaterialApp(
+    //   // home: MyBottomNavigationBar(),
+    // );
+
+    // provides AuthenticationService class and user stream from said class
+    return MultiProvider(
+      providers: [
+        Provider<AuthenticationService>(
+          create: (_) => AuthenticationService(FirebaseAuth.instance),
+        ),
+        StreamProvider(
+          // gets access to getter from service
+          create: (context) =>
+              context.read<AuthenticationService>().authStateChanges,
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Login',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: AuthenticationWrapper(),
+      ),
     );
+  }
+}
+
+class AuthenticationWrapper extends StatelessWidget {
+  const AuthenticationWrapper({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final firebaseUser = context.watch<User>();
+
+    // ***Need to find way to get back to Log In page if just signing up (creating the account)***
+    // can maybe create their preferences there:
+    // * Which state should be default when looking for NPs
+    // * Their username
+    // * We also need to add Saved/Favorites to Profile settings/pref
+    if (firebaseUser != null) {
+      return MyBottomNavigationBar();
+    }
+    return StartupPage();
   }
 }
 
@@ -84,35 +138,3 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: "Travel Advisor",
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text('Testing Navigation Bar'),
-//         ),
-//         body: Center(
-//           child: Text('Hello world')),
-//       ),
-//     );
-//   }
-// }

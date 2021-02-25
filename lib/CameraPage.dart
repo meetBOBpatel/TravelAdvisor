@@ -5,16 +5,14 @@ class CameraPage extends StatefulWidget {
   _CameraPageState createState() => _CameraPageState();
 }
 
-class _CameraPageState extends State<CameraPage> {
+class _CameraPageState extends State<CameraPage>
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Collage Page"),
-      ),
-      body: new Center(
-        child: new Text("This is Collage Page"),
-      ),
-    );
+        appBar: new AppBar(
+          title: new Text("Collage Page"),
+        )
+      );
   }
 }
