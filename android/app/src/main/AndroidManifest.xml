@@ -3,6 +3,11 @@
    <application
         android:label="travel_advisor"
         android:icon="@mipmap/ic_launcher">
+
+        <!-- Ali: Added lines 8 and 9 for Google Maps API Key -->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyCeB5-uombwa-fRwkXeW4srQga6p6Hm8mw"/>
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
