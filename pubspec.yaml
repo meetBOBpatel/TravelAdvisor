@@ -55,19 +55,20 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/icon1.jpg
-    - assets/icon2.jpg
-    - assets/icon3.jpg
-    - assets/icon4.jpg
-    - assets/icon5.jpg
-    - assets/icon6.jpg
-    - assets/icon7.jpg
-    - assets/icon8.jpg
-    - assets/icon9.jpg
-    - assets/icon10.jpg
-    - assets/icon11.jpg
-    - assets/icon12.jpg
-    # - images/a_dot_ham.jpeg
+    - assets/BryceCanyonNationalPark1.jpg
+    - assets/GrandTetonNationalPark.jpg
+    - assets/ZionNationalPark.jpg
+    - assets/CongareeNationalPark.jpg	
+    - assets/YosemiteNationPark.jpg
+    - assets/IndianaDunesNationalPark.jpg	
+    - assets/NewRiverGrogeNationalPark.jpg
+    - assets/MammothCaveNationalPark.jpg	
+    - assets/SmokeyMountainNationalPark.jpg
+    - assets/YellowstoneNationalPark.jpg 
+    - assets/GlacierNationalPark.jpg
+    - assets/GrandTetonNationalPark.jpg
+    - assets/GrandCanyonNationalPark.jpg
+ 
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
