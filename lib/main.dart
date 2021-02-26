@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:travel_advisor/CameraPage.dart';
+import 'package:travel_advisor/ScenicPages.dart';
 import 'package:travel_advisor/HomePage.dart';
 import 'package:travel_advisor/LoginPage.dart';
 import 'package:travel_advisor/MapPage.dart';
@@ -65,8 +65,7 @@ class AuthenticationWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User>();
 
-    // ***Need to find way to get back to Log In page if just signing up (creating the account)***
-    // can maybe create their preferences there:
+    // can maybe create their preferences at Sign Up:
     // * Which state should be default when looking for NPs
     // * Their username
     // * We also need to add Saved/Favorites to Profile settings/pref
@@ -90,7 +89,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     HomePage(),
     MapPage(),
     SavePage(),
-    CameraPage(),
+    ScenicPages(),
     SettingsPage()
   ];
 
@@ -120,12 +119,12 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.save),
-            label: "Save",
+            label: "Saved",
             backgroundColor: Colors.deepOrange,
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.camera),
-            label: "Camera",
+            label: "Scenic Spots",
             backgroundColor: Colors.deepOrange,
           ),
           BottomNavigationBarItem(

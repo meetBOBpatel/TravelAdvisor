@@ -1,10 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 
+String errorMessage;
+
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth;
   AuthenticationService(this._firebaseAuth);
-  String errorMessage;
 
   // depending on if signed in or signed out, returns user or null
   Stream<User> get authStateChanges => _firebaseAuth.authStateChanges();
@@ -19,7 +20,8 @@ class AuthenticationService {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
       return "Signed in";
-    } on FirebaseAuthException catch (e) {
+    } catch (e) {
+      errorMessage = e.message;
       return e.message;
     }
   }
@@ -30,7 +32,30 @@ class AuthenticationService {
           email: email, password: password);
       return "Signed up";
     } on FirebaseAuthException catch (e) {
+      errorMessage = e.message;
       return e.message;
     }
+  }
+}
+
+class EmailValidator {
+  static String validate(String value) {
+    if (value.isEmpty) {
+      return "Email can't be empty";
+    } else if (errorMessage != null) {
+      return errorMessage;
+    }
+    return null;
+  }
+}
+
+class PasswordValidator {
+  static String validate(String value) {
+    if (value.isEmpty) {
+      return "Password can't be empty";
+    } else if (errorMessage != null) {
+      return errorMessage;
+    }
+    return null;
   }
 }

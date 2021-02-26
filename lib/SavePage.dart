@@ -10,10 +10,11 @@ class _SavePageState extends State<SavePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Save Page"),
+        title: new Text("Saved Page"),
       ),
       body: new Center(
-        child: new Text("This is Save Page"),
+        child: new Text(
+            "This is Saved Page where you can add your favorite National Parks!"),
       ),
     );
   }
