@@ -27,6 +27,10 @@ dependencies:
   # Ali: Added this dependency for google map interaction
   google_maps_flutter: ^1.0.3
 
+  # Ali: Added this for the ability to launch google maps
+  maps_launcher: ^1.2.2+2
+  flutter_svg: # only if you want to use icons as they are svgs
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
