@@ -43,10 +43,16 @@ dependencies:
   maps_launcher: ^1.2.2+2
   flutter_svg: # only if you want to use icons as they are svgs
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.1+1
+
+  # Meet: This dependency will allow user to open popup menus
+  focused_menu: ^1.0.2
+
+  # This dependency will help us keep naviagtion bar even in different pages
+  custom_navigator: ^0.3.0
+  # end Meet's
 
 dev_dependencies:
   flutter_test:
@@ -74,7 +80,7 @@ flutter:
     - assets/GrandTetonNationalPark.jpg
     - assets/ZionNationalPark.jpg
     - assets/CongareeNationalPark.jpg
-    - assets/YosemiteNationPark.jpg
+    - assets/YosemiteNationalPark.jpg
     - assets/IndianaDunesNationalPark.jpg
     - assets/NewRiverGrogeNationalPark.jpg
     - assets/MammothCaveNationalPark.jpg
