@@ -17,21 +17,20 @@ class NavigatorTab extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget child;
 
-    if (tabItem == "page1") {
+    if (tabItem == "homePage") {
       child = HomePage();
-    } else if (tabItem == "page2") {
+    } else if (tabItem == "mapPage") {
       child = MapPage();
-    } else if (tabItem == "page3") {
+    } else if (tabItem == "savePage") {
       child = SavePage();
-    } else if (tabItem == "page4") {
+    } else if (tabItem == "scenicPage") {
       child = ScenicPages();
-    } else if (tabItem == "page5") {
+    } else if (tabItem == "settingsPage") {
       child = SettingsPage();
     }
-
     return Navigator(
       key: navigatorKey,
-      onGenerateRoute: (RouteSettings) {
+      onGenerateRoute: (routeSettings) {
         return MaterialPageRoute(builder: (context) => child);
       },
     );
