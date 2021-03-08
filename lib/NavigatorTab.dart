@@ -5,6 +5,7 @@ import 'package:travel_advisor/MapPage.dart';
 import 'package:travel_advisor/SavePage.dart';
 import 'package:travel_advisor/ScenicPages.dart';
 import 'package:travel_advisor/SettingsPage.dart';
+import 'package:weather/weather.dart';
 
 class NavigatorTab extends StatelessWidget {
   final GlobalKey<NavigatorState> navigatorKey;

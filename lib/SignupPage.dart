@@ -1,7 +1,6 @@
 // import 'dart:html';
 import 'package:travel_advisor/AuthService.dart';
 import 'package:travel_advisor/LoginPage.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
