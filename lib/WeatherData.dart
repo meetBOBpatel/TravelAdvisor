@@ -4,6 +4,7 @@ class WeatherInfo {
 
   WeatherInfo({this.description, this.icon});
 
+  // gets description and icon from json
   factory WeatherInfo.fromJson(Map<String, dynamic> json) {
     final description = json['description'];
     final icon = json['icon'];
@@ -16,6 +17,7 @@ class TempInfo {
 
   TempInfo({this.temp});
 
+  // gets temp from json
   factory TempInfo.fromJson(Map<String, dynamic> json) {
     final temp = json['temp'];
     return TempInfo(temp: temp);
@@ -34,6 +36,7 @@ class WeatherData {
 
   WeatherData({this.date, this.name, this.temp, this.weatherInfo});
 
+  // brings all weather gathered together here
   factory WeatherData.fromJson(Map<String, dynamic> json) {
     final date = new DateTime.fromMillisecondsSinceEpoch(json['dt'] * 1000,
         isUtc: false);

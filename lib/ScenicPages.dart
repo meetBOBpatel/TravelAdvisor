@@ -2,21 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:travel_advisor/WeatherData.dart';
 import 'package:travel_advisor/Weather.dart';
 import 'package:travel_advisor/DataService.dart';
-import 'package:intl/intl.dart';
-import 'dart:convert';
 
 class ScenicPages extends StatefulWidget {
-  // WeatherData weather;
-  // ScenicPages({Key key, @required this.weather}) : super(key: key);
   @override
   _CameraPageState createState() => _CameraPageState();
 }
 
 class _CameraPageState extends State<ScenicPages>
     with SingleTickerProviderStateMixin {
+  // State to show if loading up weather
   bool isLoading = false;
+
   WeatherData weatherData;
-  final _dataService = DataService();
+  final _dataService = DataService(); // gets data from weather API
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +25,7 @@ class _CameraPageState extends State<ScenicPages>
       body: new Center(
         child: Column(
           children: [
+            // Weather
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: weatherData != null
@@ -41,15 +40,11 @@ class _CameraPageState extends State<ScenicPages>
                       valueColor: new AlwaysStoppedAnimation(Colors.blue),
                     )
                   : ElevatedButton(
-                      // ElevatedButton(
-                      // icon: new Icon(Icons.refresh),
-                      // tooltip: 'Refresh',
-                      // onPressed: _search,
-                      onPressed: _search, child: Text('Get Weather'),
-                      // color: Colors.white,
+                      onPressed: _search,
+                      child: Text('Get Weather'),
                     ),
             ),
-            // Text("Hello"),
+            // end Weather
           ],
         ),
       ),

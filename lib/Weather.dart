@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:travel_advisor/WeatherData.dart';
 
+// Youtube video that helped me create the Weather App
+// https://www.youtube.com/watch?v=5fzdvPnp5bY
 class Weather extends StatelessWidget {
   final WeatherData weather;
 
