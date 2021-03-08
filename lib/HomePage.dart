@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
             "National Parks",
             textAlign: TextAlign.center,
           ),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: Colors.grey[850],
         ),
         body: GridView(
           gridDelegate:
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -66,7 +66,9 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Bryce Canyon", style: TextStyle(fontSize: 20)),
+                          Text("Bryce Canyon",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200])),
                         ],
                       ),
                     ),
@@ -89,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -110,7 +112,9 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Yosemite", style: TextStyle(fontSize: 20))
+                          Text("Yosemite",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -133,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -154,7 +158,9 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Zion", style: TextStyle(fontSize: 20))
+                          Text("Zion",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -177,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -198,7 +204,9 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Mammoth Cave", style: TextStyle(fontSize: 20))
+                          Text("Mammoth Cave",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -221,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -242,7 +250,9 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Glacier", style: TextStyle(fontSize: 20))
+                          Text("Glacier",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -265,7 +275,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -286,7 +296,9 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Grand Canyon", style: TextStyle(fontSize: 20))
+                          Text("Grand Canyon",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -309,7 +321,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -330,7 +342,9 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Yellow Stone", style: TextStyle(fontSize: 20))
+                          Text("Yellow Stone",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -353,7 +367,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -374,7 +388,9 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Grand Teton", style: TextStyle(fontSize: 20))
+                          Text("Grand Teton",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -397,7 +413,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -418,7 +434,9 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Congaree", style: TextStyle(fontSize: 20))
+                          Text("Congaree",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -441,7 +459,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -462,7 +480,9 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Indiana Dunes", style: TextStyle(fontSize: 20))
+                          Text("Indiana Dunes",
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -485,7 +505,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -507,7 +527,8 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Text("New River Groge",
-                              style: TextStyle(fontSize: 20))
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -530,7 +551,7 @@ class _HomePageState extends State<HomePage> {
                           )
                     ],
                     child: Card(
-                      color: Colors.blueGrey,
+                      color: Colors.brown[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -552,7 +573,8 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Text("Smokey Mountain",
-                              style: TextStyle(fontSize: 20))
+                              style: TextStyle(
+                                  fontSize: 20, color: Colors.grey[200]))
                         ],
                       ),
                     ),
@@ -560,6 +582,6 @@ class _HomePageState extends State<HomePage> {
                 )),
           ],
         ),
-        backgroundColor: Colors.grey);
+        backgroundColor: Colors.brown);
   }
 }
