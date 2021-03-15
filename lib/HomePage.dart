@@ -11,6 +11,44 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+
+showAlertDialog(BuildContext context, String title, String details) {
+
+  // set up the buttons
+  Widget b1 = TextButton(
+    child: Text("button 1"),
+    onPressed:  () {},
+  );
+  Widget b2 = TextButton(
+    child: Text("button 2"),
+    onPressed:  () {},
+  );
+  Widget b3 = TextButton(
+    child: Text("button 3"),
+    onPressed:  () {},
+  );
+  Widget b4 = TextButton(
+    child: Text("button 3"),
+    onPressed:  () {},
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text(title),
+    content: Text(details),
+    actions: [
+      b1,b2,b3,b4,
+    ],
+  );
+
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+  
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
@@ -26,14 +64,17 @@ class _HomePageState extends State<HomePage> {
           gridDelegate:
               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           children: <Widget>[
+           
+           
             Container(
                 height: 280,
                 child: GridTile(
                   child: FocusedMenuHolder(
                     menuWidth: MediaQuery.of(context).size.width * .5,
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (conext) => MapPage()));
+                      // Navigator.push(context,
+                      //     MaterialPageRoute(builder: (conext) => MapPage()));
+                      showAlertDialog(context, "BryceCanyon National", "THis is good" ); 
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -41,7 +82,9 @@ class _HomePageState extends State<HomePage> {
                           trailingIcon:
                               Icon(Icons.favorite_border, color: Colors.black),
                           onPressed:
-                              () {} // Add this National Park to Saved Page
+                              () {
+                                
+                              } // Add this National Park to Saved Page
                           )
                     ],
                     child: Card(
@@ -74,6 +117,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+           
+           
             Container(
                 height: 280,
                 child: GridTile(
@@ -120,6 +165,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+          
+          
             Container(
                 height: 280,
                 child: GridTile(
@@ -166,6 +213,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+          
+          
             Container(
                 height: 280,
                 child: GridTile(
@@ -212,6 +261,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+          
+          
             Container(
                 height: 280,
                 child: GridTile(
@@ -258,6 +309,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+          
+          
             Container(
                 height: 280,
                 child: GridTile(
@@ -304,6 +357,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+          
+          
             Container(
                 height: 280,
                 child: GridTile(
@@ -350,6 +405,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+          
+          
             Container(
                 height: 280,
                 child: GridTile(
@@ -396,6 +453,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+          
+          
             Container(
                 height: 280,
                 child: GridTile(
@@ -442,6 +501,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+          
+          
             Container(
                 height: 280,
                 child: GridTile(
@@ -488,6 +549,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+          
+          
             Container(
                 height: 280,
                 child: GridTile(
@@ -534,6 +597,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
+          
+          
             Container(
                 height: 280,
                 child: GridTile(
@@ -582,6 +647,8 @@ class _HomePageState extends State<HomePage> {
                 )),
           ],
         ),
+        
+        
         backgroundColor: Colors.brown);
   }
 }
