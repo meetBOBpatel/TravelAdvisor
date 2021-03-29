@@ -60,6 +60,12 @@ dependencies:
 
   # This dependency will help us keep naviagtion bar even in different pages
   custom_navigator: ^0.3.0
+
+  # THis dependecy stores data into firebase database 
+  firebase_database: ^6.0.0
+
+  # This dependency will help us get data from firebase cloud
+  cloud_firestore: ^0.16.0+1
   # end Meet's
 
   #Vedant adding pops
