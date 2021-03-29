@@ -33,7 +33,9 @@ class _SavePageState extends State<SavePage> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Saved National Parks"),
+        backgroundColor: Colors.grey[850],
       ),
+      backgroundColor: Colors.brown,
       body: Center(
         child: Column(
           children: [
@@ -43,19 +45,37 @@ class _SavePageState extends State<SavePage> {
                 itemBuilder: (BuildContext context, DataSnapshot snapshot,
                     Animation<double> animation, int index) {
                   return new Card(
-                    margin: EdgeInsets.all(10.0),
+                    color: Colors.brown[900],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            topRight: Radius.circular(20),
+                            bottomLeft: Radius.circular(20),
+                            bottomRight: Radius.circular(20))),
+                    margin: EdgeInsets.all(7.0),
                     child: new Container(
                       padding: EdgeInsets.all(10.0),
                       child: new Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          new Image.network(snapshot.value['image'],
-                              fit: BoxFit.cover),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(16),
+                            child: Image.network(
+                              snapshot.value['image'],
+                              height: 170,
+                              width: 200,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          // new Image.network(snapshot.value['image'],
+                          //     fit: BoxFit.cover),
                           SizedBox(height: 10.0),
                           new Text(
                             snapshot.value['name'],
                             textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.grey[200], fontSize: 20),
                           )
                         ],
                       ),
