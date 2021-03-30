@@ -53,32 +53,42 @@ class _SavePageState extends State<SavePage> {
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20))),
                     margin: EdgeInsets.all(7.0),
-                    child: new Container(
-                      padding: EdgeInsets.all(10.0),
-                      child: new Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
-                            child: Image.network(
-                              snapshot.value['image'],
-                              height: 170,
-                              width: 200,
-                              fit: BoxFit.fill,
+                    child: new Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: Image.network(
+                                snapshot.value['image'],
+                                height: 200,
+                                width: 200,
+                                fit: BoxFit.fill,
+                              ),
                             ),
-                          ),
-                          // new Image.network(snapshot.value['image'],
-                          //     fit: BoxFit.cover),
-                          SizedBox(height: 10.0),
-                          new Text(
-                            snapshot.value['name'],
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.grey[200], fontSize: 20),
-                          )
-                        ],
-                      ),
+                            Padding(padding: EdgeInsets.only(left: 15)),
+                            new Flexible(
+                              child: new Text(
+                                snapshot.value['name'],
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.grey[200], fontSize: 22),
+                              ),
+                            ),
+                            Padding(padding: EdgeInsets.all(5)),
+                            new IconButton(
+                              onPressed: () {
+                                databaseReference.child(snapshot.key).remove();
+                              },
+                              icon: const Icon(Icons.delete),
+                              iconSize: 30,
+                            ),
+                            Padding(padding: EdgeInsets.all(5)),
+                          ],
+                        )
+                      ],
                     ),
                   );
                 },

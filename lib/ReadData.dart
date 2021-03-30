@@ -5,7 +5,7 @@ class ReadData {
 
   void readData() {
     dataRef.once().then((DataSnapshot snapshot) {
-      print('Data: ${snapshot.value}');
+      // print('Data: ${snapshot.value}');
     });
   }
 }
