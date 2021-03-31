@@ -131,6 +131,10 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     }
   }
 
+  void callOnTap(String page, int index) {
+    return onTappedBar(page, index);
+  }
+
   Widget _buildOffstageNavigator(String tabItem) {
     return Offstage(
       offstage: currentPage != tabItem,

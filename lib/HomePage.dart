@@ -9,7 +9,10 @@ import 'package:travel_advisor/MapPage.dart';
 import 'package:travel_advisor/ReadData.dart';
 import 'package:travel_advisor/SavePage.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:travel_advisor/ScenicPages.dart';
 import 'package:travel_advisor/UploadData.dart';
+
+import 'NavigatorTab.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({this.app});
@@ -21,9 +24,17 @@ class HomePage extends StatefulWidget {
 
 showAlertDialog(
     BuildContext context, String title, String details, double L1, double L2) {
+  Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
+    "HomePage": GlobalKey<NavigatorState>(),
+    "mapPage": GlobalKey<NavigatorState>(),
+    "savePage": GlobalKey<NavigatorState>(),
+    "scenicPage": GlobalKey<NavigatorState>(),
+    "settingsPage": GlobalKey<NavigatorState>(),
+  };
+
   // set up the buttons
   Widget b1 = TextButton(
-    child: Text("button 1"),
+    child: Text("Scenic"),
     onPressed: () {},
   );
   Widget b2 = TextButton(
@@ -37,7 +48,7 @@ showAlertDialog(
   Widget b4 = TextButton(
     child: Text("Lonch Map"),
     onPressed: () {
-      MapsLauncher.launchCoordinates(L1, L2);
+      MapsLauncher.launchCoordinates(L1, L2, title);
     },
   );
 
@@ -61,7 +72,8 @@ showAlertDialog(
   );
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   final refDatabase = FirebaseDatabase.instance;
 
   @override
