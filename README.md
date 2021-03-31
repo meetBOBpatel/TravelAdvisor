@@ -18,5 +18,5 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # TravelAdvisor
-[Video that helped us create Authentication system using Firebase] https://www.youtube.com/watch?v=oJ5Vrya3wCQ
-[Documentation of Firebase using Flutter] https://firebase.flutter.dev/
+# [Video that helped us create Authentication system using Firebase] https://www.youtube.com/watch?v=oJ5Vrya3wCQ
+# [Documentation of Firebase using Flutter] https://firebase.flutter.dev/
