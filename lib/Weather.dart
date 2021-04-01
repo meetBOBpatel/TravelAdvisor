@@ -25,7 +25,7 @@ class Weather extends StatelessWidget {
                 color: Colors.grey)),
         Text('${weather.temp.temp}°F',
             style: new TextStyle(fontSize: 16.0, color: Colors.white)),
-        Image.network(weather.iconUrl),
+        // Image.network(weather.iconUrl),
         Text(new DateFormat.yMMMd().format(weather.date),
             style: new TextStyle(color: Colors.white)),
         Text(new DateFormat.Hm().format(weather.date),

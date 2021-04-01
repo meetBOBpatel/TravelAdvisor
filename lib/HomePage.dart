@@ -79,6 +79,8 @@ class _HomePageState extends State<HomePage> {
 
             reference.child("Scenic Spots").remove();
 
+            // uploads the data to database, then Scenic Spots will get data from database
+            // and populate the Cards with correct scenic spots
             for (var i = 0; i < 6; i++) {
               UploadData uploadData = new UploadData(
                   name[i], latitude[i], longitude[i], img[i], desc[i]);
@@ -98,7 +100,7 @@ class _HomePageState extends State<HomePage> {
         double L1, double L2) {
       // set up the buttons
       Widget b1 = TextButton(
-        child: Text("Check out Scenic Spots! (Click 6 times)"),
+        child: Text("Check out Scenic Spots!"),
         onPressed: () {
           updateScenicSpots(title);
         },
@@ -117,7 +119,7 @@ class _HomePageState extends State<HomePage> {
       Widget b4 = TextButton(
         child: Text("Navigate with Google Maps"),
         onPressed: () {
-          MapsLauncher.launchCoordinates(L1, L2);
+          MapsLauncher.launchQuery(title);
         },
       );
 
@@ -515,7 +517,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       showAlertDialog(
                           context,
-                          "Yellow Stone National Park",
+                          "Yellowstone National Park",
                           "Yellowstone National Park is a nearly 3,500-sq.-mile wilderness recreation area atop a volcanic hot spot. Mostly in Wyoming, the park spreads into parts of Montana and Idaho too. Yellowstone features dramatic canyons, alpine rivers, lush forests, hot springs and gushing geysers, including its most famous, Old Faithful. It's also home to hundreds of animal species, including bears, wolves, bison, elk and antelope. ",
                           44.428109498626114,
                           -110.58663193766971);
@@ -527,7 +529,7 @@ class _HomePageState extends State<HomePage> {
                               Icon(Icons.favorite_border, color: Colors.black),
                           onPressed: () {
                             reference.child('National Parks').push().set({
-                              'name': 'Yellow Stone National Park',
+                              'name': 'Yellowstone National Park',
                               'image':
                                   'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YellowstoneNationalPark.jpg?alt=media&token=cd5c3a04-3374-4ed4-aa27-64c6bd1bd0f8'
                             }).asStream();
@@ -556,7 +558,7 @@ class _HomePageState extends State<HomePage> {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("Yellow Stone",
+                          Text("Yellowstone",
                               style: TextStyle(
                                   fontSize: 20, color: Colors.grey[200]))
                         ],
@@ -743,8 +745,8 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       showAlertDialog(
                           context,
-                          "New River Groge National Park",
-                          "The New River Gorge National Park and Preserve is a unit of the United States National Park Service designed to protect and maintain the New River Gorge in southern West Virginia in the Appalachian Mountains. ",
+                          "New River Gorge National Park",
+                          "The New River Gorge National Park and Preserve is a unit of the United States National Park Service designed to protect and maintain the New River Gorge in southern West Virginia in the Appalachian Mountains.",
                           37.87895546929177,
                           -81.01797465855435);
                     }, // Open google maps and show direction Home to National Park
@@ -757,7 +759,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'New River Gorge National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/NewRiverGrogeNationalPark.jpg?alt=media&token=fe870891-b4de-4c02-aab5-c668faf2a82e'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/NewRiverGorgeNationalPark.jpg?alt=media&token=fe870891-b4de-4c02-aab5-c668faf2a82e'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )
@@ -778,13 +780,13 @@ class _HomePageState extends State<HomePage> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(16),
                             child: Image.asset(
-                              "assets/NewRiverGrogeNationalPark.jpg",
+                              "assets/NewRiverGorgeNationalPark.jpg",
                               height: 170,
                               width: 200,
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Text("New River Groge",
+                          Text("New River Gorge",
                               style: TextStyle(
                                   fontSize: 20, color: Colors.grey[200]))
                         ],

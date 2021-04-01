@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_advisor/WeatherData.dart';
 import 'package:travel_advisor/Weather.dart';
 import 'package:travel_advisor/DataService.dart';
+import 'package:travel_advisor/UploadData.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -24,10 +25,12 @@ class _CameraPageState extends State<ScenicPages>
   // State to show if loading up weather
   bool isLoading = false;
 
-  WeatherData weatherData;
+  WeatherData
+      weatherData; // gets weather data from dataservice in async _getWeather function
   final _dataService = DataService(); // gets data from weather API
   var latitude;
   var longitude;
+  int index = 0;
 
   final reference = FirebaseDatabase.instance.reference();
   DatabaseReference databaseReference;
@@ -36,7 +39,6 @@ class _CameraPageState extends State<ScenicPages>
   void initState() {
     print("Inside init state");
     final FirebaseDatabase database = FirebaseDatabase(app: widget.app);
-
     databaseReference = database.reference().child('Scenic Spots');
     print("end  init state");
     super.initState();
@@ -59,6 +61,8 @@ class _CameraPageState extends State<ScenicPages>
                     Animation<double> animation, int index) {
                   latitude = snapshot.value['lat'];
                   longitude = snapshot.value['lon'];
+                  // _getWeather();
+                  index += 1;
                   return new Card(
                     color: Colors.brown,
                     shape: RoundedRectangleBorder(
@@ -74,6 +78,7 @@ class _CameraPageState extends State<ScenicPages>
                       children: <Widget>[
                         Row(
                           children: <Widget>[
+                            // image, name, weather, description widgets
                             ClipRRect(
                               borderRadius: BorderRadius.circular(16),
                               child: Image.network(
@@ -111,7 +116,10 @@ class _CameraPageState extends State<ScenicPages>
                                             Colors.blue),
                                       )
                                     : ElevatedButton(
-                                        onPressed: _search,
+                                        style: ElevatedButton.styleFrom(
+                                            primary: Colors.teal,
+                                            onPrimary: Colors.white),
+                                        onPressed: _getWeather,
                                         child: Text('Get Weather'),
                                       ),
                               ),
@@ -143,7 +151,7 @@ class _CameraPageState extends State<ScenicPages>
     );
   }
 
-  void _search() async {
+  void _getWeather() async {
     setState(() => isLoading = true);
 
     // final lat = '44.4280';
