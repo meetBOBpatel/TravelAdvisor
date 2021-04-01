@@ -13,7 +13,7 @@ class WeatherInfo {
 }
 
 class TempInfo {
-  final double temp;
+  final temp;
 
   TempInfo({this.temp});
 

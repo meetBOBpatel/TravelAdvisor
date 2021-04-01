@@ -19,54 +19,124 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-showAlertDialog(
-    BuildContext context, String title, String details, double L1, double L2) {
-  // set up the buttons
-  Widget b1 = TextButton(
-    child: Text("button 1"),
-    onPressed: () {},
-  );
-  Widget b2 = TextButton(
-    child: Text("button 2"),
-    onPressed: () {},
-  );
-  Widget b3 = TextButton(
-    child: Text("button 3"),
-    onPressed: () {},
-  );
-  Widget b4 = TextButton(
-    child: Text("Lonch Map"),
-    onPressed: () {
-      MapsLauncher.launchCoordinates(L1, L2);
-    },
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text(title),
-    content: Text(details),
-    actions: [
-      b1,
-      b2,
-      b3,
-      b4,
-    ],
-  );
-
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
-
 class _HomePageState extends State<HomePage> {
   final refDatabase = FirebaseDatabase.instance;
 
   @override
   Widget build(BuildContext context) {
     final reference = refDatabase.reference();
+
+    void updateScenicSpots(String name) {
+      switch (name) {
+        case "Bryce Canyon National Park":
+          {
+            var name = [];
+            name.addAll([
+              "Hayden Valley",
+              "Mammoth Hot Springs",
+              "Mount Washburn",
+              "Mud Volcano",
+              "Old Faithful",
+              "Yellowstone Lake"
+            ]);
+            var img = [];
+            img.addAll([
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-HaydenValley.jpg?alt=media&token=7410daf2-5777-444f-8d03-3fb98a00d389",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MammothHotSprings.jpg?alt=media&token=17c6ccfd-f5aa-41ee-8feb-a2fd16dea20c",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MountWashburn.jpg?alt=media&token=a73d72a5-2c46-4edf-86bb-84b1619a8627",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MudVolcano.jpg?alt=media&token=f5bd6a70-fe3c-4d1c-a9d7-21602b5be9d0",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-OldFaithful.jpg?alt=media&token=8951026a-19b4-40e7-87ca-972cad1f9612",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-YellowstoneLake.jpg?alt=media&token=f0efe4b9-1a58-4deb-b869-749d23e41ab2"
+            ]);
+            var latitude = [];
+            latitude.addAll([
+              '44.6438', // hayden
+              '44.9769', // mammoth
+              '44.7977', // mt washburn
+              '44.6249', // mud volcano
+              '44.4605', // old faithful
+              '44.4622' // ys lake
+            ]);
+            var longitude = [];
+            longitude.addAll([
+              '-110.4555', // hayden
+              '-110.6991', // mammoth
+              '-110.4344', // mt washburn
+              '-110.4336', // mud volcano
+              '-110.8281', // old faithful
+              '-110.3333' // ys lake
+            ]);
+
+            var desc = [];
+            desc.addAll([
+              'Beautiful valley filled with wildlife',
+              'Exciting thermal hot springs that can reach up to 165°F',
+              'Mountain that peaks at 10,243 ft with an amazing view',
+              'Historic geyser and popular tourist attraction',
+              'Largest high elevation lake in North America',
+              'Beautiful valley filled with wildlife',
+            ]);
+
+            reference.child("Scenic Spots").remove();
+
+            for (var i = 0; i < 6; i++) {
+              UploadData uploadData = new UploadData(
+                  name[i], latitude[i], longitude[i], img[i], desc[i]);
+
+              uploadData.sendData();
+            }
+          }
+          break;
+
+        default:
+          {}
+          break;
+      }
+    }
+
+    showAlertDialog(BuildContext context, String title, String details,
+        double L1, double L2) {
+      // set up the buttons
+      Widget b1 = TextButton(
+        child: Text("Check out Scenic Spots! (Click 6 times)"),
+        onPressed: () {
+          updateScenicSpots(title);
+        },
+      );
+      Widget b2 = TextButton(
+        child: Text("Download the offline map"),
+        onPressed: () {},
+      );
+      Widget b3 = TextButton(
+        child: Text("Go to the Maps Page"),
+        onPressed: () {},
+      );
+      Widget b4 = TextButton(
+        child: Text("Navigate with Google Maps"),
+        onPressed: () {
+          MapsLauncher.launchCoordinates(L1, L2);
+        },
+      );
+
+      // set up the AlertDialog
+      AlertDialog alert = AlertDialog(
+        title: Text(title),
+        content: Text(details),
+        actions: [
+          b1,
+          b2,
+          b3,
+          b4,
+        ],
+      );
+
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        },
+      );
+    }
 
     return new Scaffold(
         appBar: new AppBar(
@@ -88,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       showAlertDialog(
                           context,
-                          "Bryce Canyon National Park ",
+                          "Bryce Canyon National Park",
                           "Bryce Canyon National Park, a sprawling reserve in southern Utah, is known for crimson-colored hoodoos, which are spire-shaped rock formations. The park’s main road leads past the expansive Bryce Amphitheater, a hoodoo-filled depression lying below the Rim Trail hiking path. It has overlooks at Sunrise Point, Sunset Point, Inspiration Point and Bryce Point. Prime viewing times are around sunup and sundown.",
                           37.609181207224594,
                           -112.2324156093562);
@@ -102,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Bryce Canyon National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/BryceCanyonNationalPark1.jpg?alt=media&token=f439f97a-0210-40dd-a3aa-aa9ceec1b3c5'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/BryceCanyonNationalPark1.jpg?alt=media&token=f439f97a-0210-40dd-a3aa-aa9ceec1b3c5',
                             }).asStream();
 
                             // UploadData uploadData = new UploadData(
@@ -154,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       showAlertDialog(
                           context,
-                          "Yosemite National Park ",
+                          "Yosemite National Park",
                           "Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome. In Yosemite Village are shops, restaurants, lodging, the Yosemite Museum and the Ansel Adams Gallery, with prints of the photographer’s renowned black-and-white landscapes of the area.",
                           37.86509400479401,
                           -119.53811025826526);
