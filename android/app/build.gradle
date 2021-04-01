@@ -40,6 +40,11 @@ android {
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        // This defalut config needed to fix the bottom error
+        // "The number of method references in a .dex file cannot exceed 64K"
+        // Learn how to resolve this issue at https://developer.android.com/tools/building/multidex.html
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -59,4 +64,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation platform('com.google.firebase:firebase-bom:26.5.0')
     implementation 'com.google.firebase:firebase-auth'
+
+    // This needed to fix
+    // "The number of method references in a .dex file cannot exceed 64K"
+    // Learn how to resolve this issue at https://developer.android.com/tools/building/multidex.html
+    implementation 'com.android.support:multidex:1.0.0'
 }

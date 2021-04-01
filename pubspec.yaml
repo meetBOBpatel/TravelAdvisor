@@ -25,19 +25,30 @@ dependencies:
     sdk: flutter
     
   # Josh: dependencies
+
   # Login
   firebase_core: ^0.7.0
   firebase_auth: ^0.20.0+1
   provider: ^4.3.3
   auto_size_text: ^2.1.0
+  # Weather
+  weather: ^1.2.4
+  
+  http: ^0.12.0
+  geolocator: ^6.0.1
+  # Formatting for date
+  intl: ^0.16.1
   # Fonts
-  google_fonts: ^1.1.2
+  #google_fonts: ^1.1.2
 
   # end Josh's
 
   # Ali: Added this dependency for google map interaction
   google_maps_flutter: ^1.0.3
   # end Ali's
+
+  # Ali: Added this for custom map markers
+  clippy_flutter: ^1.1.1
 
   # Ali: Added this for the ability to launch google maps
   maps_launcher: ^1.2.2+2
@@ -53,6 +64,17 @@ dependencies:
   # This dependency will help us keep naviagtion bar even in different pages
   custom_navigator: ^0.3.0
   # end Meet's
+
+  # This dependecy stores data into firebase database 
+  firebase_database: ^6.0.0
+
+  # This dependency will help us get data from firebase cloud
+  cloud_firestore: ^0.16.0+1
+  # end Meet's
+
+  #Vedant adding pops
+  #rflutter_alert: ^2.0.2
+  #end vedant 
 
 dev_dependencies:
   flutter_test:

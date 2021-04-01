@@ -1,7 +1,6 @@
 // import 'dart:html';
 import 'package:travel_advisor/AuthService.dart';
 import 'package:travel_advisor/LoginPage.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -51,22 +50,12 @@ class _SignupPageState extends State<SignupPage> {
             ),
           ),
 
-          // OG text fields
-          // TextField(
-          //     controller: emailController,
-          //     decoration: InputDecoration(labelText: "Email")),
-          // TextField(
-          //     obscureText: true,
-          //     controller: passwordController,
-          //     decoration: InputDecoration(labelText: "Password")),
           SizedBox(height: 20.0),
 
           // Could add error messages if wrong
           ElevatedButton(
             child: Text("SIGN UP"),
             onPressed: () {
-              // final form = formKey.currentState;
-              // form.save();
               if (validate()) {
                 context
                     .read<AuthenticationService>()
@@ -76,8 +65,6 @@ class _SignupPageState extends State<SignupPage> {
                     MaterialPageRoute(
                         builder: (context) => AuthenticationWrapper()));
               }
-              // email: emailController.text,
-              // password: passwordController.text.trim());
             },
           ),
           SizedBox(height: 10.0),
@@ -99,7 +86,7 @@ class _SignupPageState extends State<SignupPage> {
 
     textFields.add(
       TextFormField(
-        validator: EmailValidator.validate,
+        validator: context.read<AuthenticationService>().validateEmail,
         decoration: InputDecoration(
           hintText: "Email Address",
         ),
@@ -108,7 +95,7 @@ class _SignupPageState extends State<SignupPage> {
     );
     textFields.add(
       TextFormField(
-        validator: PasswordValidator.validate,
+        validator: context.read<AuthenticationService>().validatePassword,
         decoration: InputDecoration(
           hintText: "Password",
         ),
