@@ -105,11 +105,14 @@ class _HomePageState extends State<HomePage> {
       );
       Widget b2 = TextButton(
         child: Text("Download the offline map"),
-        onPressed: () {},
+        onPressed: () {}, // Maybe just push a widget of image on top
       );
       Widget b3 = TextButton(
         child: Text("Go to the Maps Page"),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => MapPage()));
+        },
       );
       Widget b4 = TextButton(
         child: Text("Navigate with Google Maps"),
