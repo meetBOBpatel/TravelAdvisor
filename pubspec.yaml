@@ -113,8 +113,14 @@ flutter:
     - assets/GrandCanyonNationalPark.jpg
     - assets/StartupPage.jpg
     - google_fonts/FrederickatheGreat-Regular.ttf
+    - assets/YS-YellowstoneLake.jpg
+    - assets/YS-OldFaithful.jpg
+    - assets/YS-MudVolcano.jpg
+    - assets/YS-MountWashburn.jpg
+    - assets/YS-MammothHotSprings.jpg
+    - assets/YS-HaydenValley.jpg
     # - images/a_dot_ham.jpeg
-
+    # Map Marker Image Assets
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
