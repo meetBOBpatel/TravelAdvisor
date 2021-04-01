@@ -117,7 +117,7 @@ class _HomePageState extends State<HomePage> {
       Widget b4 = TextButton(
         child: Text("Navigate with Google Maps"),
         onPressed: () {
-          MapsLauncher.launchCoordinates(L1, L2);
+           MapsLauncher.launchQuery(title);
         },
       );
 
