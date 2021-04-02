@@ -111,28 +111,28 @@ class _HomePageState extends State<HomePage> {
             ]);
             var latitude = [];
             latitude.addAll([
-              '37.62835',
-              '37.604361',
-              '37.665472',
-              '37.544306',
-              '37.620194'
+              '37.62835', // sunrise
+              '37.604361', // bryce
+              '37.665472', // mossy
+              '37.544306', // farview
+              '37.620194' // double
             ]);
             var longitude = [];
             longitude.addAll([
-              '-112.16293',
-              '-112.159528',
-              '-112.112778',
-              '-112.244278',
-              '-112.161417'
+              '-112.16293', // sunrise
+              '-112.159528', // bryce
+              '-112.112778', // mossy
+              '-112.244278', // farview
+              '-112.161417' // double
             ]);
 
             var desc = [];
             desc.addAll([
-              'Beautiful view of the legendary rock formations',
-              'Enjoy an amazing view of Bryce amphitheater',
-              'Rock formation view with a mossy outline',
-              'Great view of valleys, rock ridges, and the sun',
-              'Naturally formed arched in the rock formations',
+              'Beautiful view of the legendary rock formations', // sunrise
+              'Enjoy an amazing view of Bryce amphitheater', // bryce
+              'Rock formation view with a mossy outline', // mossy
+              'Great view of valleys, rock ridges, and the sun', // farview
+              'Naturally formed arched in the rock formations', // double
             ]);
 
             reference.child("Scenic Spots").remove();
@@ -171,20 +171,20 @@ class _HomePageState extends State<HomePage> {
                 ['37.73395', '37.7275', '37.7274', '37.7485', '37.75671']);
             var longitude = [];
             longitude.addAll([
-              '-119.63775',
-              '-119.54388',
-              '-119.57432',
-              '-119.5491',
-              '-119.59684'
+              '-119.63775', // capitan
+              '-119.54388', // vernal
+              '-119.57432', // glacier
+              '-119.5491', // mirror
+              '-119.59684' // falls
             ]);
 
             var desc = [];
             desc.addAll([
-              'Must-see 3,000 ft mountain',
-              'Popular hiking route with a waterfall',
-              'Amazing view of the Half Dome and High Sieera',
-              'Stunning mirror view of the Half Dome',
-              'Legendary waterfall made up of three waterfalls',
+              'Must-see 3,000 ft mountain', // capitan
+              'Popular hiking route with a waterfall', // vernal
+              'Amazing view of the Half Dome and High Sieera', // glacier
+              'Stunning mirror view of the Half Dome', // mirror
+              'Legendary waterfall made up of three waterfalls', // falls
             ]);
 
             reference.child("Scenic Spots").remove();
@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
               "Zion-Mount Carmel Highway",
               "Weeping Rock",
               "Lower Emerald Pools",
-              "Yosemite Falls"
+              "Checkerboard Mesa"
             ]);
             var img = [];
             img.addAll([
@@ -220,11 +220,11 @@ class _HomePageState extends State<HomePage> {
             ]);
             var latitude = [];
             latitude.addAll([
-              '37.423717',
-              '37.209935',
-              '37.271423',
-              '37.248342',
-              '37.225508'
+              '37.423717', // canyon
+              '37.209935', // highway
+              '37.271423', // weeping rock
+              '37.248342', // emerald
+              '37.225508' // checkerboard
             ]);
             var longitude = [];
             longitude.addAll([
@@ -237,11 +237,11 @@ class _HomePageState extends State<HomePage> {
 
             var desc = [];
             desc.addAll([
-              'Beautiful canyon with roads on the canyon floor',
-              'Highway drive with amazing view of the mountainside',
-              'Dripping stone overhang with hanging gardens',
-              'Gorgeous walkway through nature',
-              'White-colored mesa with stones up the mountain side',
+              'Beautiful canyon with roads on the canyon floor', // canyon
+              'Highway drive with amazing view of the mountainside', // highway
+              'Dripping stone overhang with hanging gardens', // weeping rock
+              'Gorgeous walkway through nature', // emerald
+              'White-colored mesa with stones up the mountain side', // checkerboard
             ]);
 
             reference.child("Scenic Spots").remove();
@@ -277,11 +277,11 @@ class _HomePageState extends State<HomePage> {
             ]);
             var latitude = [];
             latitude.addAll([
-              '37.181609',
-              '37.181609',
-              '37.155766',
-              '37.167000',
-              '37.181609'
+              '37.181609', // cave
+              '37.181609', // fat
+              '37.155766', // trail
+              '37.167000', // green
+              '37.181609' // tall
             ]);
             var longitude = [];
             longitude.addAll([
@@ -294,11 +294,11 @@ class _HomePageState extends State<HomePage> {
 
             var desc = [];
             desc.addAll([
-              "Mysterious limestone cave with stunning visuals",
-              "Narrow passageway inside Mammoth Cave",
-              "Beautiful hiking location with a rock formation",
-              "25 mile river flowing through the park",
-              "A short passageway inside Mammoth Cave"
+              "Mysterious limestone cave with stunning visuals", // cave
+              "Narrow passageway inside Mammoth Cave", // fat
+              "Beautiful hiking location with a rock formation", // trail
+              "25 mile river flowing through the park", // green
+              "A short passageway inside Mammoth Cave" // tail
             ]);
 
             reference.child("Scenic Spots").remove();
