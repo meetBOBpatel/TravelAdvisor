@@ -40,7 +40,6 @@ class _HomePageState extends State<HomePage>
           {
             var name = [];
             name.addAll([
-              "Hayden Valley",
               "Mammoth Hot Springs",
               "Mount Washburn",
               "Mud Volcano",
@@ -49,7 +48,6 @@ class _HomePageState extends State<HomePage>
             ]);
             var img = [];
             img.addAll([
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-HaydenValley.jpg?alt=media&token=7410daf2-5777-444f-8d03-3fb98a00d389",
               "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MammothHotSprings.jpg?alt=media&token=17c6ccfd-f5aa-41ee-8feb-a2fd16dea20c",
               "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MountWashburn.jpg?alt=media&token=a73d72a5-2c46-4edf-86bb-84b1619a8627",
               "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MudVolcano.jpg?alt=media&token=f5bd6a70-fe3c-4d1c-a9d7-21602b5be9d0",
@@ -58,7 +56,6 @@ class _HomePageState extends State<HomePage>
             ]);
             var latitude = [];
             latitude.addAll([
-              '44.6438', // hayden
               '44.9769', // mammoth
               '44.7977', // mt washburn
               '44.6249', // mud volcano
@@ -67,7 +64,6 @@ class _HomePageState extends State<HomePage>
             ]);
             var longitude = [];
             longitude.addAll([
-              '-110.4555', // hayden
               '-110.6991', // mammoth
               '-110.4344', // mt washburn
               '-110.4336', // mud volcano
@@ -77,19 +73,18 @@ class _HomePageState extends State<HomePage>
 
             var desc = [];
             desc.addAll([
-              'Beautiful valley filled with wildlife',
               'Exciting thermal hot springs that can reach up to 165°F',
               'Mountain that peaks at 10,243 ft with an amazing view',
+              'Popular tourist hiking area',
               'Historic geyser and popular tourist attraction',
               'Largest high elevation lake in North America',
-              'Beautiful valley filled with wildlife',
             ]);
 
             reference.child("Scenic Spots").remove();
 
             // uploads the data to database, then Scenic Spots will get data from database
             // and populate the Cards with correct scenic spots
-            for (var i = 0; i < 6; i++) {
+            for (var i = 0; i < 5; i++) {
               UploadData uploadData = new UploadData(
                   name[i], latitude[i], longitude[i], img[i], desc[i]);
 

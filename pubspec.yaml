@@ -113,12 +113,31 @@ flutter:
     - assets/GrandCanyonNationalPark.jpg
     - assets/StartupPage.jpg
     - google_fonts/FrederickatheGreat-Regular.ttf
+
+    # Yellowstone Images
     - assets/YS-YellowstoneLake.jpg
     - assets/YS-OldFaithful.jpg
     - assets/YS-MudVolcano.jpg
     - assets/YS-MountWashburn.jpg
     - assets/YS-MammothHotSprings.jpg
-    - assets/YS-HaydenValley.jpg
+    # Bryce Canyon Images
+    - assets/BC-BrycePoint.jpg
+    - assets/BC-FairviewPoint.jpg
+    - assets/BC-MossyWindow.jpg
+    - assets/BC-NaturalBridge.jpg
+    - assets/BC-SunrisePoint.jpg
+    # Yosemite Images
+    - assets/YO-ElCapitan.jpg
+    - assets/YO-GlacierPoint.jpg
+    - assets/YO-MirrorLake.jpg
+    - assets/YO-VernalFalls.jpg
+    - assets/YO-YosemiteFalls.jpg
+    # Yellowstone Images
+    - assets/ZI-CheckerboardMesa.jpg
+    - assets/ZI-EmeraldPools.jpg
+    - assets/ZI-WeepingRock.jpg
+    - assets/ZI-ZionCanyon.jpg
+    - assets/ZI-ZionHighway.jpg
     # - images/a_dot_ham.jpeg
     # Map Marker Image Assets
   # An image asset can refer to one or more resolution-specific "variants", see
