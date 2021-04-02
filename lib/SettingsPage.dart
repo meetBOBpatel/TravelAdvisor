@@ -131,7 +131,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       },
                     ),
                     SizedBox(
-                      height: 50,
+                      height: 10,
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
