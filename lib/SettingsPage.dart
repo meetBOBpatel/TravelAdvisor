@@ -116,7 +116,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       },
                     ),
                     new TextFormField(
-                      maxLines: 3,
+                      // maxLines: 3,
                       decoration:
                           InputDecoration(labelText: "Additional comments"),
                       // ignore: missing_return
@@ -130,9 +130,9 @@ class _SettingsPageState extends State<SettingsPage> {
                         comments = value;
                       },
                     ),
-                    SizedBox(
-                      height: 50,
-                    ),
+                    // SizedBox(
+                    //   height: 50,
+                    // ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           primary: Colors.red.shade400,
