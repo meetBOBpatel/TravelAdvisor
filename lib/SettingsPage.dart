@@ -55,14 +55,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 context.read<AuthenticationService>().signOut();
               },
             ),
-            SizedBox(height: 5),
+//             SizedBox(height: 5),
             Text(
               "Emergency Contact Form",
               style: TextStyle(
                 fontSize: 23,
               ),
             ),
-            SizedBox(height: 5),
+//             SizedBox(height: 5),
             new Form(
                 key: _formKey,
                 child: Column(
@@ -131,7 +131,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       },
                     ),
                     SizedBox(
-                      height: 50,
+                      height: 10,
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
