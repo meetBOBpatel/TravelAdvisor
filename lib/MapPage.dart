@@ -7,20 +7,39 @@ import 'package:travel_advisor/model/MarkerInformation.dart';
 
 // Ali's Task - April 1
 class MapPage extends StatefulWidget {
+  static String x = "NOTHING";
   @override
   _MapPageState createState() => _MapPageState();
 }
 
 class _MapPageState extends State<MapPage> {
+
   GoogleMapController mapController;
   // Holds initial position of map (in this case Yellowstone)
   final LatLng _initialPosition = const LatLng(
       44.423691, -110.588516); // Yellow stone coords: 44.4280° N, 110.5885° W
 
+
+  // Title of national park passed from HomePage
+  String title = "";
+
+
+
+
+
   // Set of markers for scenic spots
   Set<Marker> scenicSpots = {};
 
-  final Map<String, MarkerInformation> _markerList = {
+  @override
+  void didUpdateWidget(MapPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print("didUpdateWidget IS " + MapPage.x);
+    scenicSpots = {};
+
+
+  }
+
+  Map<String, MarkerInformation> _markerList = {
     "oldFaithful": MarkerInformation(
         'Old Faithful',
         "assets/YS-OldFaithful.jpg",
@@ -58,8 +77,10 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
+    print("build() x is " + MapPage.x);
     final providerObject =
         Provider.of<MarkerInformationWindow>(context, listen: false);
+
     _markerList.forEach((key, value) {
       scenicSpots.add(
         Marker(
@@ -80,6 +101,15 @@ class _MapPageState extends State<MapPage> {
         ),
       );
     });
+
+    switch(MapPage.x) {
+      case "Grand Canyon National Park":
+        scenicSpots = {};
+        break;
+      default:
+        break;
+    }
+
     return new Scaffold(
         appBar: new AppBar(
           title: new Text("Map Page"),
@@ -192,6 +222,8 @@ class _MapPageState extends State<MapPage> {
                 },
                 onMapCreated: (GoogleMapController controller) {
                   mapController = controller;
+                  print("MAP CREATED x is " + MapPage.x);
+                  scenicSpots = {};
                 },
                 markers: scenicSpots,
                 initialCameraPosition: CameraPosition(
@@ -205,110 +237,3 @@ class _MapPageState extends State<MapPage> {
   }
 } // end mapPageState
 
-
-/* Old Scaffold, with workings markers + button to navigate via google map app
-  return new Scaffold(
-          appBar: new AppBar(
-            title: new Text("Map Page"),
-          ),
-          body: Stack(
-            children: <Widget>[
-              GoogleMap(
-                onMapCreated: _onMapCreated,
-                markers: scenicSpots,
-                initialCameraPosition: CameraPosition(
-                  target: _initialPosition,
-                  zoom: 9.0,
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                // add your floating action button
-                child: FloatingActionButton(
-                  onPressed: () => {
-                    MapsLauncher.launchCoordinates(
-                        44.423691, -110.588516, 'Yellowstone')
-                  },
-                  child: Icon(Icons.map),
-                ),
-              ),
-            ],
-          ));
- */
-
-// Onmap with scenic spots added
-// void _onMapCreated(GoogleMapController controller) {
-//   // mapController = controller;
-//   // setState(() {
-//   //   scenicSpots.add(Marker(
-//   //     markerId: MarkerId('id-1'),
-//   //     position: LatLng(44.4605, -110.8281),
-//   //     infoWindow: InfoWindow(
-//   //         title: 'Old Faithful',
-//   //         snippet: 'Historic geyser and popular tourist attraction'),
-//   //         onTap: (){
-//   //           print("PRESSED MARKER!");
-//   //         }
-//   //   ));
-//   //
-//   //   scenicSpots.add(Marker(
-//   //     markerId: MarkerId('id-2'),
-//   //     position: LatLng(44.9769, -110.6991),
-//   //     infoWindow: InfoWindow(
-//   //       title: 'Mammoth Hot Springs',
-//   //       snippet: 'Exciting thermal hot springs that can reach up to 165°F',
-//   //       onTap: (){
-//   //         print("PRESSED MARKER!");
-//   //       }
-//   //     ),
-//   //   ));
-//   //
-//   //   scenicSpots.add(Marker(
-//   //     markerId: MarkerId('id-3'),
-//   //     position: LatLng(44.7977, -110.4344),
-//   //     infoWindow: InfoWindow(
-//   //       title: 'Mount Washburn',
-//   //       snippet: 'Mountain that peaks at 10,243 ft with an amazing view',
-//   //       onTap: (){
-//   //         print("PRESSED MARKER!");
-//   //       }
-//   //     ),
-//   //   ));
-//   //
-//   //   scenicSpots.add(Marker(
-//   //     markerId: MarkerId('id-4'),
-//   //     position: LatLng(44.6249, -110.4336),
-//   //     infoWindow: InfoWindow(
-//   //       title: 'Mud Volcano',
-//   //       snippet: 'Steamy mud-filled hot springs with accessible  viewings',
-//   //       onTap: (){
-//   //         print("PRESSED MARKER!");
-//   //       }
-//   //     ),
-//   //   ));
-//   //
-//   //   scenicSpots.add(Marker(
-//   //     markerId: MarkerId('id-5'),
-//   //     position: LatLng(44.4622, -110.3333),
-//   //     infoWindow: InfoWindow(
-//   //       title: 'YellowStone Lake',
-//   //       snippet: 'Largest high elevation lake in North America',
-//   //       onTap: (){
-//   //         print("PRESSED MARKER!");
-//   //       }
-//   //     ),
-//   //   ));
-//   //
-//   //   scenicSpots.add(Marker(
-//   //     markerId: MarkerId('id-6'),
-//   //     position: LatLng(44.6438, -110.4555),
-//   //     infoWindow: InfoWindow(
-//   //       title: 'Hayden Valley',
-//   //       snippet: 'Beautiful valley filled with wildlife',
-//   //       onTap: (){
-//   //         print("PRESSED MARKER!");
-//   //       }
-//   //     ),
-//   //   ));
-//   // });
-// } // end onMapCreated

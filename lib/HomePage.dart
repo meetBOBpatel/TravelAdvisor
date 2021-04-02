@@ -9,7 +9,10 @@ import 'package:travel_advisor/MapPage.dart';
 import 'package:travel_advisor/ReadData.dart';
 import 'package:travel_advisor/SavePage.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:travel_advisor/ScenicPages.dart';
 import 'package:travel_advisor/UploadData.dart';
+
+import 'MapPage.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({this.app});
@@ -24,11 +27,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print("Static map variable is " + MapPage.x.toString() + " HomePage()");
     final reference = refDatabase.reference();
 
     void updateScenicSpots(String name) {
       switch (name) {
-        case "Bryce Canyon National Park":
+        case "Yellowstone National Park":
           {
             var name = [];
             name.addAll([
@@ -96,28 +100,53 @@ class _HomePageState extends State<HomePage> {
       }
     }
 
+
+
     showAlertDialog(BuildContext context, String title, String details,
         double L1, double L2) {
       // set up the buttons
       Widget b1 = TextButton(
         child: Text("Check out Scenic Spots!"),
+        style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: Colors.teal,
+            onSurface: Colors.grey),
         onPressed: () {
           updateScenicSpots(title);
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ScenicPages()));
         },
       );
       Widget b2 = TextButton(
         child: Text("Download the offline map"),
+        style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: Colors.teal,
+            onSurface: Colors.grey),
         onPressed: () {}, // Maybe just push a widget of image on top
       );
       Widget b3 = TextButton(
         child: Text("Go to the Maps Page"),
+        style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: Colors.teal,
+            onSurface: Colors.grey),
         onPressed: () {
+          MapPage.x = title;
+          print("Title is $title");
+
+          print("Static map variable is " + MapPage.x.toString() + " HomePage()");
+          //Navigator.pop(context, false);
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => MapPage()));
         },
       );
       Widget b4 = TextButton(
         child: Text("Navigate with Google Maps"),
+        style: TextButton.styleFrom(
+          primary: Colors.white,
+          backgroundColor: Colors.teal,
+          onSurface: Colors.grey),
         onPressed: () {
           MapsLauncher.launchQuery(title);
         },
@@ -125,7 +154,7 @@ class _HomePageState extends State<HomePage> {
 
       // set up the AlertDialog
       AlertDialog alert = AlertDialog(
-        title: Text(title),
+        title: Text(title,textAlign: TextAlign.center),
         content: Text(details),
         actions: [
           b1,
@@ -133,6 +162,8 @@ class _HomePageState extends State<HomePage> {
           b3,
           b4,
         ],
+        elevation: 5,
+        backgroundColor: Colors.lightBlueAccent,
       );
 
       showDialog(
@@ -141,6 +172,7 @@ class _HomePageState extends State<HomePage> {
           return alert;
         },
       );
+
     }
 
     return new Scaffold(
