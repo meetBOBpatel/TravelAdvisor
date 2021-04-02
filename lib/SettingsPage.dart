@@ -116,7 +116,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       },
                     ),
                     new TextFormField(
-                      maxLines: 3,
+                      // maxLines: 3,
                       decoration:
                           InputDecoration(labelText: "Additional comments"),
                       // ignore: missing_return
