@@ -8,11 +8,14 @@ import 'package:maps_launcher/maps_launcher.dart';
 import 'package:travel_advisor/MapPage.dart';
 import 'package:travel_advisor/ReadData.dart';
 import 'package:travel_advisor/SavePage.dart';
-import 'package:travel_advisor/ScenicPages.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:travel_advisor/ScenicPages.dart';
 import 'package:travel_advisor/UploadData.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'MapPage.dart';
+import 'NavigatorTab.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({this.app});
@@ -22,11 +25,13 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   final refDatabase = FirebaseDatabase.instance;
 
   @override
   Widget build(BuildContext context) {
+    print("Static map variable is " + MapPage.x.toString() + " HomePage()");
     final reference = refDatabase.reference();
 
     void updateScenicSpots(String name) {
@@ -43,11 +48,11 @@ class _HomePageState extends State<HomePage> {
             ]);
             var img = [];
             img.addAll([
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MammothHotSprings.jpg?alt=media&token=17c6ccfd-f5aa-41ee-8feb-a2fd16dea20c",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MountWashburn.jpg?alt=media&token=a73d72a5-2c46-4edf-86bb-84b1619a8627",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MudVolcano.jpg?alt=media&token=f5bd6a70-fe3c-4d1c-a9d7-21602b5be9d0",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-OldFaithful.jpg?alt=media&token=8951026a-19b4-40e7-87ca-972cad1f9612",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-YellowstoneLake.jpg?alt=media&token=f0efe4b9-1a58-4deb-b869-749d23e41ab2"
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MammothHotSprings.jpg?alt=media&token=adc2f2d2-9a29-493b-9d06-5ce71e137c95",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MountWashburn.jpg?alt=media&token=0d88000b-b483-413f-b5e8-c73ca188da5f",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MudVolcano.jpg?alt=media&token=f136c5e9-e8fe-430f-acc0-7f4d18e83cf5",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-OldFaithful.jpg?alt=media&token=9ee66b6c-2979-42db-a147-786792889bd6",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-YellowstoneLake.jpg?alt=media&token=7f9471ca-ff98-4e0b-8879-cba8418f98cf"
             ]);
             var latitude = [];
             latitude.addAll([
@@ -87,219 +92,7 @@ class _HomePageState extends State<HomePage> {
             }
           }
           break;
-        case "Bryce Canyon National Park":
-          {
-            var name = [];
-            name.addAll([
-              "Sunrise Point",
-              "Bryce Point",
-              "Mossy Window",
-              "Farview Point",
-              "Double Bridge"
-            ]);
-            var img = [];
-            img.addAll([
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/BC-SunrisePoint.jpg?alt=media&token=8c16f434-6f84-428b-a099-9392a2ef31f7",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/BC-BrycePoint.jpg?alt=media&token=c3317733-2fe3-4395-886c-18a7288d8457",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/BC-MossyWindow.jpg?alt=media&token=b2a4811e-4acd-4bed-afe5-f2dbacd3ffd3",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/BC-FairviewPoint.jpg?alt=media&token=740112fe-2719-440b-8b9c-0b3be68cf318",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/BC-NaturalBridge.jpg?alt=media&token=72d6bcb5-375a-42d8-ba25-a60d23edf440"
-            ]);
-            var latitude = [];
-            latitude.addAll([
-              '37.62835', // sunrise
-              '37.604361', // bryce
-              '37.665472', // mossy
-              '37.544306', // farview
-              '37.620194' // double
-            ]);
-            var longitude = [];
-            longitude.addAll([
-              '-112.16293', // sunrise
-              '-112.159528', // bryce
-              '-112.112778', // mossy
-              '-112.244278', // farview
-              '-112.161417' // double
-            ]);
 
-            var desc = [];
-            desc.addAll([
-              'Beautiful view of the legendary rock formations', // sunrise
-              'Enjoy an amazing view of Bryce amphitheater', // bryce
-              'Rock formation view with a mossy outline', // mossy
-              'Great view of valleys, rock ridges, and the sun', // farview
-              'Naturally formed arched in the rock formations', // double
-            ]);
-
-            reference.child("Scenic Spots").remove();
-
-            // uploads the data to database, then Scenic Spots will get data from database
-            // and populate the Cards with correct scenic spots
-            for (var i = 0; i < 6; i++) {
-              UploadData uploadData = new UploadData(
-                  name[i], latitude[i], longitude[i], img[i], desc[i]);
-
-              uploadData.sendData();
-            }
-          }
-          break;
-        case "Yosemite National Park":
-          {
-            var name = [];
-            name.addAll([
-              "El Capitan",
-              "Vernal Fall",
-              "Glacier Point",
-              "Mirror Lake",
-              "Yosemite Falls"
-            ]);
-            var img = [];
-            img.addAll([
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YO-ElCapitan.jpg?alt=media&token=1b052e3f-826b-48c5-816d-459f6fe8db34",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YO-VernalFalls.jpg?alt=media&token=3dde39b3-9195-4ad3-973d-0f9219b42136",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YO-GlacierPoint.jpg?alt=media&token=b4d797bc-a466-46e6-ac67-3c1b7043774d",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YO-MirrorLake.jpg?alt=media&token=70b3a79c-b52c-4f61-b80f-b0aa3f94859c",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YO-YosemiteFalls.jpg?alt=media&token=97a3cae6-ce9d-4433-9b46-0b503c3ddd06"
-            ]);
-            var latitude = [];
-            latitude.addAll(
-                ['37.73395', '37.7275', '37.7274', '37.7485', '37.75671']);
-            var longitude = [];
-            longitude.addAll([
-              '-119.63775', // capitan
-              '-119.54388', // vernal
-              '-119.57432', // glacier
-              '-119.5491', // mirror
-              '-119.59684' // falls
-            ]);
-
-            var desc = [];
-            desc.addAll([
-              'Must-see 3,000 ft mountain', // capitan
-              'Popular hiking route with a waterfall', // vernal
-              'Amazing view of the Half Dome and High Sieera', // glacier
-              'Stunning mirror view of the Half Dome', // mirror
-              'Legendary waterfall made up of three waterfalls', // falls
-            ]);
-
-            reference.child("Scenic Spots").remove();
-
-            // uploads the data to database, then Scenic Spots will get data from database
-            // and populate the Cards with correct scenic spots
-            for (var i = 0; i < 6; i++) {
-              UploadData uploadData = new UploadData(
-                  name[i], latitude[i], longitude[i], img[i], desc[i]);
-
-              uploadData.sendData();
-            }
-          }
-          break;
-        case "Zion National Park":
-          {
-            var name = [];
-            name.addAll([
-              "Zion Canyon",
-              "Zion-Mount Carmel Highway",
-              "Weeping Rock",
-              "Lower Emerald Pools",
-              "Checkerboard Mesa"
-            ]);
-            var img = [];
-            img.addAll([
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/ZI-ZionHighway.jpg?alt=media&token=ba203b85-686b-4b18-8dc2-c86daa4badbc",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/ZI-ZionCanyon.jpg?alt=media&token=26232440-06db-4e49-8efc-1b4d00a4d687",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/ZI-WeepingRock.jpg?alt=media&token=8448b39c-943d-4f48-acd5-9030c53c0bcd",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/ZI-EmeraldPools.jpg?alt=media&token=8c917c23-0617-45ca-ac09-040ce47bda7f",
-              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/ZI-CheckerboardMesa.jpg?alt=media&token=289dc46c-8eaa-420e-bdca-a65ef7f71bf5"
-            ]);
-            var latitude = [];
-            latitude.addAll([
-              '37.423717', // canyon
-              '37.209935', // highway
-              '37.271423', // weeping rock
-              '37.248342', // emerald
-              '37.225508' // checkerboard
-            ]);
-            var longitude = [];
-            longitude.addAll([
-              '-113.153551',
-              '-112.956692',
-              '-112.936527',
-              '-112.9592784',
-              '-112.880595'
-            ]);
-
-            var desc = [];
-            desc.addAll([
-              'Beautiful canyon with roads on the canyon floor', // canyon
-              'Highway drive with amazing view of the mountainside', // highway
-              'Dripping stone overhang with hanging gardens', // weeping rock
-              'Gorgeous walkway through nature', // emerald
-              'White-colored mesa with stones up the mountain side', // checkerboard
-            ]);
-
-            reference.child("Scenic Spots").remove();
-
-            // uploads the data to database, then Scenic Spots will get data from database
-            // and populate the Cards with correct scenic spots
-            for (var i = 0; i < 6; i++) {
-              UploadData uploadData = new UploadData(
-                  name[i], latitude[i], longitude[i], img[i], desc[i]);
-
-              uploadData.sendData();
-            }
-          }
-          break;
-        case "Mammoth National Park":
-          {
-            var name = [];
-            name.addAll([
-              "Mammoth Cave",
-              "Fat Man's Misery",
-              "Cedar Sink Trail",
-              "Green River",
-              "Tall Man's Misery"
-            ]);
-            var img = [];
-            img.addAll(["", "", "", "", ""]);
-            var latitude = [];
-            latitude.addAll([
-              '37.181609', // cave
-              '37.181609', // fat
-              '37.155766', // trail
-              '37.167000', // green
-              '37.181609' // tall
-            ]);
-            var longitude = [];
-            longitude.addAll([
-              '-86.150493',
-              '-86.150493',
-              '-86.160178',
-              '-86.155328',
-              '-86.150493'
-            ]);
-
-            var desc = [];
-            desc.addAll([
-              "Mysterious limestone cave with stunning visuals", // cave
-              "Narrow passageway inside Mammoth Cave", // fat
-              "Beautiful hiking location with a rock formation", // trail
-              "25 mile river flowing through the park", // green
-              "A short passageway inside Mammoth Cave" // tail
-            ]);
-
-            reference.child("Scenic Spots").remove();
-
-            // uploads the data to database, then Scenic Spots will get data from database
-            // and populate the Cards with correct scenic spots
-            for (var i = 0; i < 6; i++) {
-              UploadData uploadData = new UploadData(
-                  name[i], latitude[i], longitude[i], img[i], desc[i]);
-
-              uploadData.sendData();
-            }
-          }
-          break;
         default:
           {}
           break;
@@ -319,6 +112,10 @@ class _HomePageState extends State<HomePage> {
       // set up the buttons
       Widget b1 = TextButton(
         child: Text("Check out Scenic Spots!"),
+        style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: Colors.teal,
+            onSurface: Colors.grey),
         onPressed: () {
           updateScenicSpots(title);
           Navigator.push(
@@ -337,13 +134,27 @@ class _HomePageState extends State<HomePage> {
       );
       Widget b3 = TextButton(
         child: Text("Go to the Maps Page"),
+        style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: Colors.teal,
+            onSurface: Colors.grey),
         onPressed: () {
+          MapPage.x = title;
+          print("Title is $title");
+
+          print(
+              "Static map variable is " + MapPage.x.toString() + " HomePage()");
+          //Navigator.pop(context, false);
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => MapPage()));
         },
       );
       Widget b4 = TextButton(
         child: Text("Navigate with Google Maps"),
+        style: TextButton.styleFrom(
+            primary: Colors.white,
+            backgroundColor: Colors.teal,
+            onSurface: Colors.grey),
         onPressed: () {
           MapsLauncher.launchQuery(title);
         },
@@ -351,7 +162,7 @@ class _HomePageState extends State<HomePage> {
 
       // set up the AlertDialog
       AlertDialog alert = AlertDialog(
-        title: Text(title),
+        title: Text(title, textAlign: TextAlign.center),
         content: Text(details),
         actions: [
           b1,
@@ -359,6 +170,8 @@ class _HomePageState extends State<HomePage> {
           b3,
           b4,
         ],
+        elevation: 5,
+        backgroundColor: Colors.lightBlueAccent,
       );
 
       showDialog(
@@ -404,7 +217,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Bryce Canyon National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/BryceCanyonNationalPark1.jpg?alt=media&token=f439f97a-0210-40dd-a3aa-aa9ceec1b3c5',
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/BryceCanyonNationalPark.jpg?alt=media&token=43f070be-dc81-4b9d-99e2-a40425a728ae',
                             }).asStream();
 
                             // UploadData uploadData = new UploadData(
@@ -471,7 +284,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Yosemite National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YosemiteNationalPark.jpg?alt=media&token=20659606-6381-4b37-bb00-90c044e3c609'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YosemiteNationalPark.jpg?alt=media&token=9dfd2878-567a-44ae-8d50-0798a779539d'
                             }).asStream();
 
                             ReadData readData = new ReadData();
@@ -532,7 +345,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Zion National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/ZionNationalPark.jpg?alt=media&token=68b08f68-0543-4fac-9923-be6a5715de84'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/ZionNationalPark.jpg?alt=media&token=1c0f19a0-8295-4dce-8984-85e069d66804'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )
@@ -590,7 +403,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Mammoth Cave National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/MammothCaveNationalPark.jpg?alt=media&token=78b150c2-b5aa-4413-897c-5992344077de'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/MammothCaveNationalPark.jpg?alt=media&token=7a3bd64b-a1eb-42d9-8f00-0d575619e7db'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )
@@ -648,7 +461,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Glacier National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/GlacierNationalPark.jpg?alt=media&token=15fbffd6-7d0f-412c-b68d-c424f3eb16eb'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/GlacierNationalPark.jpg?alt=media&token=b67d35ff-a450-4313-a4ec-db99c79dbcce'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )
@@ -706,7 +519,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Grand Canyon National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/GrandCanyonNationalPark.jpg?alt=media&token=3b4553a3-5d37-44e6-868e-5327337556db'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/GrandCanyonNationalPark.jpg?alt=media&token=92ceb52c-4e56-4404-85a5-3898324d8bc2'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )
@@ -764,7 +577,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Yellowstone National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YellowstoneNationalPark.jpg?alt=media&token=cd5c3a04-3374-4ed4-aa27-64c6bd1bd0f8'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YellowstoneNationalPark.jpg?alt=media&token=ad91642b-eb4a-4493-b3ca-818cb6963039'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )
@@ -822,7 +635,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Grand Teton National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/GrandTetonNationalPark.jpg?alt=media&token=9f1e0c4a-6ae9-4ea2-a81e-fcc49cee4daa'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/GrandTetonNationalPark.jpg?alt=media&token=f4060eca-8e35-40eb-b71d-c1fc7f807df0'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )
@@ -880,7 +693,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Congaree National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/CongareeNationalPark.jpg?alt=media&token=dfbe17e8-ec9e-4698-91ff-d216e42ff0ef'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/CongareeNationalPark.jpg?alt=media&token=834b5d18-7456-4013-bd9a-ade9cab01e02'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )
@@ -938,7 +751,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Indiana Dunes National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/IndianaDunesNationalPark.jpg?alt=media&token=b624a51d-84d1-4b12-a5c0-ba6c1dfad861'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/IndianaDunesNationalPark.jpg?alt=media&token=82985c36-0b46-4c2f-976e-ff5f838de5db'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )
@@ -996,7 +809,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'New River Gorge National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/NewRiverGorgeNationalPark.jpg?alt=media&token=fe870891-b4de-4c02-aab5-c668faf2a82e'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/NewRiverGorgeNationalPark.jpg?alt=media&token=e89c1b0f-deae-4ae4-bd75-9c6077c93a60'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )
@@ -1054,7 +867,7 @@ class _HomePageState extends State<HomePage> {
                             reference.child('National Parks').push().set({
                               'name': 'Smokey Mountain National Park',
                               'image':
-                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/SmokeyMountainNationalPark.jpg?alt=media&token=3efb27f6-bf39-4300-8406-232a4b280bd6'
+                                  'https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/SmokeyMountainNationalPark.jpg?alt=media&token=d00033ae-f4a8-4468-85f0-6060451f410a'
                             }).asStream();
                           } // Add this National Park to Saved Page
                           )

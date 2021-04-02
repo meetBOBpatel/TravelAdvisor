@@ -55,20 +55,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 context.read<AuthenticationService>().signOut();
               },
             ),
-<<<<<<< HEAD
-=======
 //             SizedBox(height: 5),
->>>>>>> origin/main
             Text(
               "Emergency Contact Form",
               style: TextStyle(
                 fontSize: 23,
               ),
             ),
-<<<<<<< HEAD
-=======
 //             SizedBox(height: 5),
->>>>>>> origin/main
             new Form(
                 key: _formKey,
                 child: Column(
