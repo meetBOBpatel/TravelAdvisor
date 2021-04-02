@@ -12,7 +12,10 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:travel_advisor/ScenicPages.dart';
 import 'package:travel_advisor/UploadData.dart';
 
+
 import 'MapPage.dart';
+import 'NavigatorTab.dart';
+
 
 class HomePage extends StatefulWidget {
   HomePage({this.app});
@@ -22,7 +25,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   final refDatabase = FirebaseDatabase.instance;
 
   @override
@@ -99,8 +103,6 @@ class _HomePageState extends State<HomePage> {
           break;
       }
     }
-
-
 
     showAlertDialog(BuildContext context, String title, String details,
         double L1, double L2) {
