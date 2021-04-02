@@ -8,14 +8,9 @@ import 'package:maps_launcher/maps_launcher.dart';
 import 'package:travel_advisor/MapPage.dart';
 import 'package:travel_advisor/ReadData.dart';
 import 'package:travel_advisor/SavePage.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:travel_advisor/ScenicPages.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:travel_advisor/UploadData.dart';
-
-
-import 'MapPage.dart';
-import 'NavigatorTab.dart';
-
 
 class HomePage extends StatefulWidget {
   HomePage({this.app});
@@ -25,13 +20,11 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage> {
   final refDatabase = FirebaseDatabase.instance;
 
   @override
   Widget build(BuildContext context) {
-    print("Static map variable is " + MapPage.x.toString() + " HomePage()");
     final reference = refDatabase.reference();
 
     void updateScenicSpots(String name) {
@@ -97,7 +90,172 @@ class _HomePageState extends State<HomePage>
             }
           }
           break;
+        case "Bryce Canyon National Park":
+          {
+            var name = [];
+            name.addAll([
+              "Sunrise Point",
+              "Bryce Point",
+              "Mossy Window",
+              "Farview Point",
+              "Double Bridge"
+            ]);
+            var img = [];
+            img.addAll([
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-HaydenValley.jpg?alt=media&token=7410daf2-5777-444f-8d03-3fb98a00d389",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MammothHotSprings.jpg?alt=media&token=17c6ccfd-f5aa-41ee-8feb-a2fd16dea20c",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MountWashburn.jpg?alt=media&token=a73d72a5-2c46-4edf-86bb-84b1619a8627",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MudVolcano.jpg?alt=media&token=f5bd6a70-fe3c-4d1c-a9d7-21602b5be9d0",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-OldFaithful.jpg?alt=media&token=8951026a-19b4-40e7-87ca-972cad1f9612",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-YellowstoneLake.jpg?alt=media&token=f0efe4b9-1a58-4deb-b869-749d23e41ab2"
+            ]);
+            var latitude = [];
+            latitude.addAll([
+              '37.62835',
+              '37.604361',
+              '37.665472',
+              '37.544306',
+              '37.620194'
+            ]);
+            var longitude = [];
+            longitude.addAll([
+              '-112.16293',
+              '-112.159528',
+              '-112.112778',
+              '-112.244278',
+              '-112.161417'
+            ]);
 
+            var desc = [];
+            desc.addAll([
+              'Beautiful view of the legendary rock formations',
+              'Enjoy an amazing view of Bryce amphitheater',
+              'Rock formation view with a mossy outline',
+              'Great view of valleys, rock ridges, and the sun',
+              'Naturally formed arched in the rock formations',
+            ]);
+
+            reference.child("Scenic Spots").remove();
+
+            // uploads the data to database, then Scenic Spots will get data from database
+            // and populate the Cards with correct scenic spots
+            for (var i = 0; i < 6; i++) {
+              UploadData uploadData = new UploadData(
+                  name[i], latitude[i], longitude[i], img[i], desc[i]);
+
+              uploadData.sendData();
+            }
+          }
+          break;
+        case "Yosemite National Park":
+          {
+            var name = [];
+            name.addAll([
+              "El Capitan",
+              "Vernal Fall",
+              "Glacier Point",
+              "Mirror Lake",
+              "Yosemite Falls"
+            ]);
+            var img = [];
+            img.addAll([
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-HaydenValley.jpg?alt=media&token=7410daf2-5777-444f-8d03-3fb98a00d389",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MammothHotSprings.jpg?alt=media&token=17c6ccfd-f5aa-41ee-8feb-a2fd16dea20c",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MountWashburn.jpg?alt=media&token=a73d72a5-2c46-4edf-86bb-84b1619a8627",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MudVolcano.jpg?alt=media&token=f5bd6a70-fe3c-4d1c-a9d7-21602b5be9d0",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-OldFaithful.jpg?alt=media&token=8951026a-19b4-40e7-87ca-972cad1f9612",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-YellowstoneLake.jpg?alt=media&token=f0efe4b9-1a58-4deb-b869-749d23e41ab2"
+            ]);
+            var latitude = [];
+            latitude.addAll(
+                ['37.73395', '37.7275', '37.7274', '37.7485', '37.75671']);
+            var longitude = [];
+            longitude.addAll([
+              '-119.63775',
+              '-119.54388',
+              '-119.57432',
+              '-119.5491',
+              '-119.59684'
+            ]);
+
+            var desc = [];
+            desc.addAll([
+              'Must-see 3,000 ft mountain',
+              'Popular hiking route with a waterfall',
+              'Amazing view of the Half Dome and High Sieera',
+              'Stunning mirror view of the Half Dome',
+              'Legendary waterfall made up of three waterfalls',
+            ]);
+
+            reference.child("Scenic Spots").remove();
+
+            // uploads the data to database, then Scenic Spots will get data from database
+            // and populate the Cards with correct scenic spots
+            for (var i = 0; i < 6; i++) {
+              UploadData uploadData = new UploadData(
+                  name[i], latitude[i], longitude[i], img[i], desc[i]);
+
+              uploadData.sendData();
+            }
+          }
+          break;
+        case "Zion National Park":
+          {
+            var name = [];
+            name.addAll([
+              "Zion Canyon",
+              "Zion-Mount Highway",
+              "Weeping Rock",
+              "Weeping Rocke",
+              "Yosemite Falls"
+            ]);
+            var img = [];
+            img.addAll([
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-HaydenValley.jpg?alt=media&token=7410daf2-5777-444f-8d03-3fb98a00d389",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MammothHotSprings.jpg?alt=media&token=17c6ccfd-f5aa-41ee-8feb-a2fd16dea20c",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MountWashburn.jpg?alt=media&token=a73d72a5-2c46-4edf-86bb-84b1619a8627",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MudVolcano.jpg?alt=media&token=f5bd6a70-fe3c-4d1c-a9d7-21602b5be9d0",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-OldFaithful.jpg?alt=media&token=8951026a-19b4-40e7-87ca-972cad1f9612",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-YellowstoneLake.jpg?alt=media&token=f0efe4b9-1a58-4deb-b869-749d23e41ab2"
+            ]);
+            var latitude = [];
+            latitude.addAll([
+              '37.423717',
+              '37.209935',
+              '37.271423',
+              '37.248342',
+              '37.225508'
+            ]);
+            var longitude = [];
+            longitude.addAll([
+              '-113.153551',
+              '-112.956692',
+              '-112.936527',
+              '-112.9592784',
+              '-112.880595'
+            ]);
+
+            var desc = [];
+            desc.addAll([
+              'Beautiful canyon with roads on the canyon floor',
+              'Highway drive with amazing view of the mountainside',
+              'Dripping stone overhang with hanging gardens',
+              'Gorgeous walkway through nature',
+              'White-colored mesa with stones up the mountain side',
+            ]);
+
+            reference.child("Scenic Spots").remove();
+
+            // uploads the data to database, then Scenic Spots will get data from database
+            // and populate the Cards with correct scenic spots
+            for (var i = 0; i < 6; i++) {
+              UploadData uploadData = new UploadData(
+                  name[i], latitude[i], longitude[i], img[i], desc[i]);
+
+              uploadData.sendData();
+            }
+          }
+          break;
         default:
           {}
           break;
@@ -109,10 +267,6 @@ class _HomePageState extends State<HomePage>
       // set up the buttons
       Widget b1 = TextButton(
         child: Text("Check out Scenic Spots!"),
-        style: TextButton.styleFrom(
-            primary: Colors.white,
-            backgroundColor: Colors.teal,
-            onSurface: Colors.grey),
         onPressed: () {
           updateScenicSpots(title);
           Navigator.push(
@@ -121,34 +275,17 @@ class _HomePageState extends State<HomePage>
       );
       Widget b2 = TextButton(
         child: Text("Download the offline map"),
-        style: TextButton.styleFrom(
-            primary: Colors.white,
-            backgroundColor: Colors.teal,
-            onSurface: Colors.grey),
         onPressed: () {}, // Maybe just push a widget of image on top
       );
       Widget b3 = TextButton(
         child: Text("Go to the Maps Page"),
-        style: TextButton.styleFrom(
-            primary: Colors.white,
-            backgroundColor: Colors.teal,
-            onSurface: Colors.grey),
         onPressed: () {
-          MapPage.x = title;
-          print("Title is $title");
-
-          print("Static map variable is " + MapPage.x.toString() + " HomePage()");
-          //Navigator.pop(context, false);
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => MapPage()));
         },
       );
       Widget b4 = TextButton(
         child: Text("Navigate with Google Maps"),
-        style: TextButton.styleFrom(
-          primary: Colors.white,
-          backgroundColor: Colors.teal,
-          onSurface: Colors.grey),
         onPressed: () {
           MapsLauncher.launchQuery(title);
         },
@@ -156,7 +293,7 @@ class _HomePageState extends State<HomePage>
 
       // set up the AlertDialog
       AlertDialog alert = AlertDialog(
-        title: Text(title,textAlign: TextAlign.center),
+        title: Text(title),
         content: Text(details),
         actions: [
           b1,
@@ -164,8 +301,6 @@ class _HomePageState extends State<HomePage>
           b3,
           b4,
         ],
-        elevation: 5,
-        backgroundColor: Colors.lightBlueAccent,
       );
 
       showDialog(
@@ -174,7 +309,6 @@ class _HomePageState extends State<HomePage>
           return alert;
         },
       );
-
     }
 
     return new Scaffold(
