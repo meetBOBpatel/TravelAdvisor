@@ -14,7 +14,6 @@ import 'package:travel_advisor/UploadData.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class HomePage extends StatefulWidget {
   HomePage({this.app});
   final FirebaseApp app;
@@ -262,13 +261,7 @@ class _HomePageState extends State<HomePage> {
               "Tall Man's Misery"
             ]);
             var img = [];
-            img.addAll([
-              "",
-              "",
-              "",
-              "",
-              ""
-            ]);
+            img.addAll(["", "", "", "", ""]);
             var latitude = [];
             latitude.addAll([
               '37.181609', // cave
@@ -312,17 +305,17 @@ class _HomePageState extends State<HomePage> {
           break;
       }
     }
-    
-      launchURL(String url) async {
-    // if (await canLaunch(url)) {
+
+    launchURL(String url) async {
+      // if (await canLaunch(url)) {
       await launch(url);
-    // } else {
-    //   throw 'Could not launch $url';
-    // }
-  }
+      // } else {
+      //   throw 'Could not launch $url';
+      // }
+    }
 
     showAlertDialog(BuildContext context, String title, String details,
-        double L1, double L2,  String Map) {
+        double L1, double L2, String Map) {
       // set up the buttons
       Widget b1 = TextButton(
         child: Text("Check out Scenic Spots!"),
@@ -339,7 +332,7 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.teal,
             onSurface: Colors.grey),
         onPressed: () {
-         launchURL(Map);
+          launchURL(Map);
         }, // Maybe just push a widget of image on top
       );
       Widget b3 = TextButton(
@@ -400,7 +393,7 @@ class _HomePageState extends State<HomePage> {
                           "Bryce Canyon National Park, a sprawling reserve in southern Utah, is known for crimson-colored hoodoos, which are spire-shaped rock formations. The park’s main road leads past the expansive Bryce Amphitheater, a hoodoo-filled depression lying below the Rim Trail hiking path. It has overlooks at Sunrise Point, Sunset Point, Inspiration Point and Bryce Point. Prime viewing times are around sunup and sundown.",
                           37.609181207224594,
                           -112.2324156093562,
-                        "https://www.nps.gov/brca/planyourvisit/upload/2020-Bryce-Canyon-Visitor-Guide.jpg");
+                          "https://www.nps.gov/brca/planyourvisit/upload/2020-Bryce-Canyon-Visitor-Guide.jpg");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -466,7 +459,8 @@ class _HomePageState extends State<HomePage> {
                           "Yosemite National Park",
                           "Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome. In Yosemite Village are shops, restaurants, lodging, the Yosemite Museum and the Ansel Adams Gallery, with prints of the photographer’s renowned black-and-white landscapes of the area.",
                           37.86509400479401,
-                          -119.53811025826526, "https://www.nps.gov/carto/hfc/carto/media/YOSEmap1.pdf");
+                          -119.53811025826526,
+                          "https://www.nps.gov/carto/hfc/carto/media/YOSEmap1.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -526,7 +520,8 @@ class _HomePageState extends State<HomePage> {
                           "Zion National Park",
                           "Zion National Park is a southwest Utah nature preserve distinguished by Zion Canyon’s steep red cliffs. Zion Canyon Scenic Drive cuts through its main section, leading to forest trails along the Virgin River. The river flows to the Emerald Pools, which have waterfalls and a hanging garden. Also along the river, partly through deep chasms, is Zion Narrows wading hike.",
                           37.29830302799651,
-                          -113.02629649360782, "https://www.nps.gov/zion/learn/news/upload/FY21-Spring-Infosheet-WEB.pdf");
+                          -113.02629649360782,
+                          "https://www.nps.gov/zion/learn/news/upload/FY21-Spring-Infosheet-WEB.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -583,7 +578,8 @@ class _HomePageState extends State<HomePage> {
                           "Mammoth Cave National Park",
                           "Mammoth Cave in Kentucky is the world's longest known cave system, with more than 400 miles explored, and one of the oldest tour attractions in North America. Mammoth Cave in Kentucky is the world's longest known cave system, with more than 400 miles explored, and one of the oldest tour attractions in North America.",
                           37.181515666902534,
-                          -86.15049311470466,  "https://www.nps.gov/maca/planyourvisit/upload/Mammoth-Cave-National-Park-Visitor-Center-Area-Map.pdf");
+                          -86.15049311470466,
+                          "https://www.nps.gov/maca/planyourvisit/upload/Mammoth-Cave-National-Park-Visitor-Center-Area-Map.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -640,7 +636,8 @@ class _HomePageState extends State<HomePage> {
                           "Glacier National Park",
                           "Glacier National Park is a 1,583-sq.-mi. wilderness area in Montana's Rocky Mountains, with glacier-carved peaks and valleys running to the Canadian border. It's crossed by the mountainous Going-to-the-Sun Road.",
                           48.759551328469826,
-                          -113.7870381316923,  "https://s3.amazonaws.com/pom-static-yellowstonepark/public/GlacierNPMap_NPS.pdf");
+                          -113.7870381316923,
+                          "https://s3.amazonaws.com/pom-static-yellowstonepark/public/GlacierNPMap_NPS.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -697,7 +694,8 @@ class _HomePageState extends State<HomePage> {
                           "Grand Canyon National Park",
                           "Grand Canyon National Park, located in northwestern Arizona, is the 15th site in the United States to have been named as a national park. The park's central feature is the Grand Canyon, a gorge of the Colorado River, which is often considered one of the Wonders of the World.",
                           36.106801297266315,
-                          -112.1145058845318, "https://www.nps.gov/grca/planyourvisit/upload/GRCAmap2.pdf");
+                          -112.1145058845318,
+                          "https://www.nps.gov/grca/planyourvisit/upload/GRCAmap2.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -754,7 +752,8 @@ class _HomePageState extends State<HomePage> {
                           "Yellowstone National Park",
                           "Yellowstone National Park is a nearly 3,500-sq.-mile wilderness recreation area atop a volcanic hot spot. Mostly in Wyoming, the park spreads into parts of Montana and Idaho too. Yellowstone features dramatic canyons, alpine rivers, lush forests, hot springs and gushing geysers, including its most famous, Old Faithful. It's also home to hundreds of animal species, including bears, wolves, bison, elk and antelope. ",
                           44.428109498626114,
-                          -110.58663193766971,  "https://www.nps.gov/yell/planyourvisit/upload/YELL_Tear-Off_Map2016.pdf"););
+                          -110.58663193766971,
+                          "https://www.nps.gov/yell/planyourvisit/upload/YELL_Tear-Off_Map2016.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -811,7 +810,8 @@ class _HomePageState extends State<HomePage> {
                           "Grand Teton National Park",
                           "Grand Teton National Park boasts 310,000 acres of lush valley floors, mountain meadows, alpine lakes and the rising peaks of the Grand Teton Mountain Range. Located just north of Jackson, Wyoming, Grand Teton has a diverse and long-standing history that includes human use from more than 11,000 years ago.",
                           43.79134228736242,
-                          -110.68050062007575, "https://s3.amazonaws.com/pom-static-yellowstonepark/public/GrandTeton_park_map_2011-2.pdf");
+                          -110.68050062007575,
+                          "https://s3.amazonaws.com/pom-static-yellowstonepark/public/GrandTeton_park_map_2011-2.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -868,7 +868,8 @@ class _HomePageState extends State<HomePage> {
                           "Congaree National Park",
                           "Congaree National Park is a 26,276-acre American national park in central South Carolina, 18 miles southeast of the state capital, Columbia. The park preserves the largest tract of old growth bottomland hardwood forest left in the United States.",
                           33.7947990795592,
-                          -80.78169003108532, "https://www.nps.gov/cong/planyourvisit/upload/03032021-COSW_Trail_Guide_Map_back_prf3.pdf");
+                          -80.78169003108532,
+                          "https://www.nps.gov/cong/planyourvisit/upload/03032021-COSW_Trail_Guide_Map_back_prf3.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -925,7 +926,8 @@ class _HomePageState extends State<HomePage> {
                           "Indiana Dunes National Park",
                           "Indiana Dunes National Park hugs 15 miles of the southern shore of Lake Michigan and has much to offer. Whether you enjoy scouting for rare species of birds or flying kites on the sandy beach, the national park's 15,000 acres will continually enchant you.  Hikers will enjoy 50 miles of trails over rugged dunes, mysterious wetlands, sunny prairies, meandering rivers and peaceful forests. ",
                           41.65055743858551,
-                          -87.0706590676887,  "https://www.in.gov/dnr/state-parks/files/dunes_trail.pdf");
+                          -87.0706590676887,
+                          "https://www.in.gov/dnr/state-parks/files/dunes_trail.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -982,7 +984,8 @@ class _HomePageState extends State<HomePage> {
                           "New River Gorge National Park",
                           "The New River Gorge National Park and Preserve is a unit of the United States National Park Service designed to protect and maintain the New River Gorge in southern West Virginia in the Appalachian Mountains.",
                           37.87895546929177,
-                          -81.01797465855435,  "http://npmaps.com/wp-content/uploads/new-river-gorge-map.pdf");
+                          -81.01797465855435,
+                          "http://npmaps.com/wp-content/uploads/new-river-gorge-map.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
@@ -1039,7 +1042,8 @@ class _HomePageState extends State<HomePage> {
                           "Smokey Mountain National Park",
                           "The Great Smoky Mountains are a mountain range rising along the Tennessee–North Carolina border in the southeastern United States. They are a subrange of the Appalachian Mountains, and form part of the Blue Ridge Physiographic Province.",
                           35.616960486553594,
-                          -83.48957841979197,"https://www.nps.gov/grsm/planyourvisit/upload/grsmmap2-2.pdf");
+                          -83.48957841979197,
+                          "https://www.nps.gov/grsm/planyourvisit/upload/grsmmap2-2.pdf");
                     }, // Open google maps and show direction Home to National Park
                     menuItems: [
                       FocusedMenuItem(
