@@ -55,14 +55,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 context.read<AuthenticationService>().signOut();
               },
             ),
-            SizedBox(height: 5),
             Text(
               "Emergency Contact Form",
               style: TextStyle(
                 fontSize: 23,
               ),
             ),
-            SizedBox(height: 5),
             new Form(
                 key: _formKey,
                 child: Column(
@@ -82,7 +80,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     new TextFormField(
                       decoration:
-                      InputDecoration(labelText: "Enter your Email"),
+                          InputDecoration(labelText: "Enter your Email"),
                       // ignore: missing_return
                       validator: (String value) {
                         if (value.isEmpty) {
@@ -90,7 +88,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         }
 
                         if (!RegExp(
-                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                             .hasMatch(value)) {
                           return "Email is invalid";
                         }
@@ -102,7 +100,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     new TextFormField(
                       decoration:
-                      InputDecoration(labelText: "Enter your Phone Number"),
+                          InputDecoration(labelText: "Enter your Phone Number"),
                       keyboardType: TextInputType.number,
                       // ignore: missing_return
                       validator: (String value) {
@@ -118,7 +116,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     new TextFormField(
                       maxLines: 3,
                       decoration:
-                      InputDecoration(labelText: "Additional comments"),
+                          InputDecoration(labelText: "Additional comments"),
                       // ignore: missing_return
                       validator: (String value) {
                         if (value.isEmpty) {

@@ -204,9 +204,9 @@ class _HomePageState extends State<HomePage> {
             var name = [];
             name.addAll([
               "Zion Canyon",
-              "Zion-Mount Highway",
+              "Zion-Mount Carmel Highway",
               "Weeping Rock",
-              "Weeping Rocke",
+              "Lower Emerald Pools",
               "Yosemite Falls"
             ]);
             var img = [];
@@ -242,6 +242,63 @@ class _HomePageState extends State<HomePage> {
               'Dripping stone overhang with hanging gardens',
               'Gorgeous walkway through nature',
               'White-colored mesa with stones up the mountain side',
+            ]);
+
+            reference.child("Scenic Spots").remove();
+
+            // uploads the data to database, then Scenic Spots will get data from database
+            // and populate the Cards with correct scenic spots
+            for (var i = 0; i < 6; i++) {
+              UploadData uploadData = new UploadData(
+                  name[i], latitude[i], longitude[i], img[i], desc[i]);
+
+              uploadData.sendData();
+            }
+          }
+          break;
+        case "Mammoth National Park":
+          {
+            var name = [];
+            name.addAll([
+              "Mammoth Cave",
+              "Fat Man's Misery",
+              "Cedar Sink Trail",
+              "Green River",
+              "Tall Man's Misery"
+            ]);
+            var img = [];
+            img.addAll([
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-HaydenValley.jpg?alt=media&token=7410daf2-5777-444f-8d03-3fb98a00d389",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MammothHotSprings.jpg?alt=media&token=17c6ccfd-f5aa-41ee-8feb-a2fd16dea20c",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MountWashburn.jpg?alt=media&token=a73d72a5-2c46-4edf-86bb-84b1619a8627",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-MudVolcano.jpg?alt=media&token=f5bd6a70-fe3c-4d1c-a9d7-21602b5be9d0",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-OldFaithful.jpg?alt=media&token=8951026a-19b4-40e7-87ca-972cad1f9612",
+              "https://firebasestorage.googleapis.com/v0/b/traveladvisor-8c525.appspot.com/o/YS-YellowstoneLake.jpg?alt=media&token=f0efe4b9-1a58-4deb-b869-749d23e41ab2"
+            ]);
+            var latitude = [];
+            latitude.addAll([
+              '37.181609',
+              '37.181609',
+              '37.155766',
+              '37.167000',
+              '37.181609'
+            ]);
+            var longitude = [];
+            longitude.addAll([
+              '-86.150493',
+              '-86.150493',
+              '-86.160178',
+              '-86.155328',
+              '-86.150493'
+            ]);
+
+            var desc = [];
+            desc.addAll([
+              "Mysterious limestone cave with stunning visuals",
+              "Narrow passageway inside Mammoth Cave",
+              "Beautiful hiking location with a rock formation",
+              "25 mile river flowing through the park",
+              "A short passageway inside Mammoth Cave"
             ]);
 
             reference.child("Scenic Spots").remove();
