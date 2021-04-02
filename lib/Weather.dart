@@ -14,13 +14,22 @@ class Weather extends StatelessWidget {
     return Column(
       children: <Widget>[
         Text(weather.name,
-            style: new TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold)),
+            style: new TextStyle(
+                fontSize: 22.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white)),
         Text(weather.weatherInfo.description,
-            style: new TextStyle(fontSize: 24.0, fontStyle: FontStyle.italic)),
-        Text('${weather.temp.temp}°F', style: new TextStyle(fontSize: 16.0)),
+            style: new TextStyle(
+                fontSize: 18.0,
+                fontStyle: FontStyle.italic,
+                color: Colors.grey)),
+        Text('${weather.temp.temp}°F',
+            style: new TextStyle(fontSize: 16.0, color: Colors.white)),
         Image.network(weather.iconUrl),
-        Text(new DateFormat.yMMMd().format(weather.date)),
-        Text(new DateFormat.Hm().format(weather.date)),
+        Text(new DateFormat.yMMMd().format(weather.date),
+            style: new TextStyle(color: Colors.white)),
+        Text(new DateFormat.Hm().format(weather.date),
+            style: new TextStyle(color: Colors.white)),
       ],
     );
   }

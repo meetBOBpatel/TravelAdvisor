@@ -4,7 +4,7 @@ import 'package:travel_advisor/WeatherData.dart';
 import 'package:http/http.dart' as http;
 
 class DataService {
-  Future<WeatherData> getWeather(String lat, String lon) async {
+  Future<WeatherData> getWeather(var lat, var lon) async {
     // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
     // final queryParameters = {
@@ -24,7 +24,7 @@ class DataService {
 
     // only gets current weather at Yellowstone's South Entrance in Teton
     final response = await http.get(
-        'https://api.openweathermap.org/data/2.5/weather?lat=44.0756&lon=-110.3952&appid=24f702748dfd5deebefa822ac29e0189&units=imperial');
+        'https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=24f702748dfd5deebefa822ac29e0189&units=imperial');
 
     print(response.body);
     final json = jsonDecode(response.body);

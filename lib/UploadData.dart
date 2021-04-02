@@ -1,17 +1,29 @@
 import 'package:firebase_database/firebase_database.dart';
 
 class UploadData {
-  String image;
-  String name;
+  var name;
+  var lat;
+  var lon;
+  var img;
+  var desc;
 
   final dataRef = FirebaseDatabase.instance.reference();
 
-  UploadData(String nationalParkImage, String nationalParkName) {
-    this.image = nationalParkImage;
-    this.name = nationalParkName;
+  UploadData(var name, var lat, var lon, var img, var desc) {
+    this.img = img;
+    this.name = name;
+    this.lat = lat;
+    this.lon = lon;
+    this.desc = desc;
   }
 
   void sendData() {
-    dataRef.child("NationalPark").set({'name': name, 'image': image});
+    dataRef.child('Scenic Spots').push().set({
+      'name': name,
+      'image': img,
+      'lat': lat,
+      'lon': lon,
+      'desc': desc
+    }).asStream();
   }
 }

@@ -2,10 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// 1000 words, 45 of's
-// 60 the's
-// 6 instances "of the"
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -22,6 +18,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_advisor/StartupPage.dart';
+import 'package:travel_advisor/model/MarkerInformationWindow.dart';
 import 'package:vm_service/vm_service.dart';
 import 'package:flutter/src/widgets/basic.dart' as Stack;
 import 'package:vm_service/src/vm_service.dart';
@@ -29,7 +26,10 @@ import 'package:vm_service/src/vm_service.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+
+  // Ali: Wrapping in widget to provide custom marker functionality
+  runApp(ChangeNotifierProvider(
+      create: (context) => MarkerInformationWindow(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
