@@ -74,6 +74,7 @@ dependencies:
 
   #Vedant adding pops
   #rflutter_alert: ^2.0.2
+  url_launcher: ^5.4.11
   #end vedant 
 
 dev_dependencies:
